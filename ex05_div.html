@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영역 관련 태그</title>
+    <!-- css 영역 -->
+    <style>
+        div { /* block-level element */
+            border: 1px solid black; /* 테두리 */
+            width: 300px;              /* 요소의 가로 크기 */
+            height: 100px;             /* 요소의 세로 크기 */
+        }
+        span { /* inline-level element : 가로, 세로 길이 지정 불가 */
+                        border: 1px solid black; /* 테두리 */
+            width: 300px;              /* 요소의 가로 크기 */
+            height: 100px;             /* 요소의 세로 크기 */
+            /* display : block; */
+        }
+    </style>
+</head>
+<body>
+    <h1>div 태그와 span 태그의 차이</h1>
+    <h3>div 태그</h3>
+    <div style="background-color: red;">1번째 영역</div>
+    <div style="background-color: yellow;">2번째 영역</div>
+    <div style="background-color: blue;">3번째 영역</div>
+    <h3>span 태그</h3>
+    <span style="background-color: red;">1번째 영역</span>
+    <span style="background-color: yellow;">2번째 영역</span>
+    <span style="background-color: blue;">3번째 영역</span>
+</body>
+</html>

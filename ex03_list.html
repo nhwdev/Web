@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목록 관련 태그 : ul, ol</title>
+</head>
+<!-- 
+    순서 없는 목록
+        글머리 : disk(default), square, circle
+    Block-level : 라인 전체에 적용 => div, ul, li, h1, ...
+    Inline-level : 라인의 일부만 적용 => span, b, small, ...
+-->
+<body>
+    <h1>ul(unordered list) : 순서 없는 목록 태그</h1>
+    <ul type="disk"> <!-- type="disk" : default -->
+        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>JQuery</li>
+    </ul>
+    <ul type="square">
+        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>JQuery</li>
+    </ul>
+    <ul type="circle">
+        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>JQuery</li>
+    </ul>
+    <hr>
+    <h1>ol(ordered list) : 순서 있는 목록 태그</h1>
+    <!-- 
+    ol : 순서가 있는 목록
+        글머리 기호
+            1 : 1, 2, 3 default. 생략 가능
+            A : A, B, C
+            a : a, b, c
+            I : I, II, III, IV, ...
+            i : i, ii, iii, iv, ...
+    -->
+    <ol type="A"><li>아침</li><li>점심</li><li>저녁</li></ol>
+    <ol type="a"><li>아침</li><li>점심</li><li>저녁</li></ol>
+    <ol type="I"><li>아침</li><li>점심</li><li>저녁</li></ol>
+    <ol type="i"><li>아침</li><li>점심</li><li>저녁</li></ol>
+    <hr>
+    <h1>개요 목록 : dl</h1>
+    <pre>
+        하나의 개요는 항목과 설명으로 구성됨
+        dl(description list) : 개요 목록
+        dt(description term) : 하나의 개요를 구성하는 항목
+        dd(description description) : 하나의 개요를 구성하는 설명
+    </pre>
+    <h3>일타 스캔들</h3>
+    <d1>
+        <dt>편성</dt><dd>Tvn 2025.10.14 ~</dd>
+        <dt>시청률</dt><dd>13.0% 닐슨코리아</dd>
+        <dt>소개</dt><dd>사교육 전쟁터 ...</dd>
+    </d1>
+</body>
+</html>

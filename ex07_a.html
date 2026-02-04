@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이퍼 링크 태그</title>
+</head>
+<body>
+    <!-- 
+        Ancher(a) 태그
+        1. 다른페이지, 다른사이트, 다른위치로 링크를 연결
+        2. 인라인 레벨 태그
+        3. 속성
+            1) href : 이동할 페이지(경로)
+            2) title : 풍선 도움말. tool-tip
+            3) target : 링크가 호출되는 페이지를 설정
+                _self : 현재창에 호출. default. 생략 가능
+                _blank : 새창에 호출
+    -->         
+    <h3>웹 경로로 태그 : 다른 사이트 호출</h3>
+    <a href="https://www.google.com">구글</a><br>
+    <a href="https://www.naver.com" target="_blank">네이버</a>
+    <h3>이동이 없는 링크</h3>
+    <input type="text"><br>
+    <a href="">비어있는 링크: 현재 페이지를 호출함</a><br>
+    <a href="#" title="비어있는 링크">비어있는 링크: 이동이 없음</a><br>
+    <a href="javascript:void(0)" title="비어있는 링크">비어있는 링크: 이동이 없음</a><br>
+    <h3>다른 파일로 링크</h3>
+    <ul>
+        <li><a href="ex01_basic.html">기본 태그</a></li>
+        <li><a href="ex03_list.html">목록 관련 태그</a></li>
+        <li><a href="ex04_table.html">표 관련 태그</a></li>
+        <li><a href="ex05_div.html">영역 관련 태그</a></li>
+        <li><a href="ex06_iframe.html">내부에 다른 페이지 연결 태그</a></li>
+    </ul>
+    <h3>문서 내부 링크</h3>
+    <ul>
+        <li><a href="#title">title 요소로 이동</a></li>
+        <li><a href="#image">image 요소로 이동</a></li>
+        <li><a href="#content">content 요소로 이동</a></li>
+    </ul>
+    <!-- 
+        href="#title" : 내부 페이지에서 id속성의 값이 title인 태그로 페이지 이동.
+        id 속성 : html 구성요소(태그) 식별하기 위한 속성. 유일성의 의미를 가짐.
+                같은 페이지내에서 id 속성값은 태그와 상관없이 유일한 것으로 간주함
+    -->
+    <h1 id="title">겨울</h1>
+    <p id="image">
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+        겨울의 이미지는 하얀 눈이 내립니다.<br>
+    </p>
+    <p id="content">
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+        12월부터 1월까지 봄비가 내립니다.<br>
+    </p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>표 관련 태그</title>
+</head>
+<body>
+    <!--
+        table : 표를 만드는 태그
+        테이블의 구역 구분 태그 : thread, tobdy, tfoot => 생략가능
+                                tbody 태그는 생략되어 사용됨. 보통 생략함
+    행(row) 태그 : tr
+    열(column) 태그 : td
+    th : header column. => 글자 굵게, 가운데 정렬
+    -->
+    <table border="3">
+        <thread>
+            <tr><td>제품명</td><td>입교수량</td><td>출고수량</td></tr>
+        </thread>
+        <tbody>
+            <tr><td>신라면</td><td>10</td><td>10</td></tr>
+            <tr><td>진라면</td><td>20</td><td>20</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td>합계</td><td>30</td><td>30</td></tr>
+        </tfoot>
+    </table>
+    <hr>
+    <table border="3">
+        <tr><th>제품명</th><th>입고수량</th><th>출고수량</th></tr>
+        <tr><td>요거트 해물라면</td><td>10</td><td>10</td></tr>
+        <tr><td>오뚜기 진라면</td><td>20</td><td>10</td></tr>
+        <tr><td>합계</td><td>30</td><td>30</td></tr>
+    </table>
+    <hr>
+    <!-- 
+        셀병합
+        colspan : 열병합(column 병합)
+        rowspan : 행병합(row 병합)
+    -->
+    <table border="2">
+        <tr><td>1열</td><td>2열</td><td>3열</td></tr>
+        <tr><td>1열</td><td colspan="2">2열, 3열</td></tr>
+        <tr><td colspan="3">1열, 2열, 3열</td></tr>
+    </table>
+        <table border="2">
+        <tr><td>1행 1열</td><td>1행 2열</td><td>1행 3열</td></tr>
+        <tr><td rowspan="2">2행 1열<br>3행 1열</td><td colspan="2">2행 2열 2행 3열</td></tr>
+        <tr><td colspan="3">3행 2열 3행 3열</td></tr>
+    </table>
+        <table border="3">
+            <colgroup>
+                <col width="34%" style="background-color: aquamarine;">
+                <col width="33%">
+                <col width="33%">
+            </colgroup>
+        <thread>
+            <tr><td>제품명</td><td>입교수량</td><td>출고수량</td></tr>
+        </thread>
+        <tbody>
+            <tr><td>신라면</td><td>10</td><td>10</td></tr>
+            <tr><td>진라면</td><td>20</td><td>20</td></tr>
+        </tbody>
+        <tfoot>
+            <tr><td>합계</td><td>30</td><td>30</td></tr>
+        </tfoot>
+    </table>
+</body>
+</html>
