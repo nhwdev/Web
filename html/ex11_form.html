@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 관련 태그 : input 외 태그</title>
+</head>
+<body>
+    <h2>select 태그 : 목록 선택</h2>
+    <select> <!-- 하나의 option만 선택-->
+        <option value="naver">naver.com</option>
+        <option value="kakao">kakao.com</option>
+        <option value="google">google.com</option>
+    </select>
+    <br>
+    <select multiple> <!-- 여러개의 option 선택 -->
+        <option value="seoul">서울</option>
+        <option value="busan">부산</option>
+        <option value="daegu">대구</option>
+    </select>
+    <h2>textarea 태그 : 여러행 입력</h2>
+    <textarea></textarea><br> <!-- 기본 크기 : 2행 20열 -->
+    <textarea rows="10" cols="30"></textarea><br> <!-- rows : 행의 크기, cols : 열의 크기 -->
+    <textarea>안녕</textarea><br> <!-- value 속성 대신, 내부 텍스트 입력된 값으로 저장 -->
+    <!-- 다음 칸에 내용이 입력되면 공백이 출력됨 -->
+    <textarea>
+        안녕
+    </textarea><br>
+    <br>
+    <hr>
+    <h2>label 태그 : 라벨 붙이기</h2>
+    <!-- for="male" : id = male 태그를 위한 라벨 -->
+    <input type="radio" name="gender" value="male" id="male"><label for ="male">남</label>
+    <input type="radio" name="gender" value="female" id="female"><label for = "female">여</label>
+    <br>
+    <!-- 라벨 붙여서 축구 문자를 클릭해도 선택/취소 가능하도록 수정하기 -->
+    <input type="checkbox" name="hobbies" value="축구" id="soccer"><label for="soccer">축구</label>
+    <input type="checkbox" name="hobbies" value="요리" id="cooking"><label for="cooking">요리</label>
+    <input type="checkbox" name="hobbies" value="여행" id="tour"><label for="tour">여행</label>
+
+    
+</body>
+</html>

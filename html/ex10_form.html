@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼 관련 태그 : input 태그</title>
+</head>
+<body>
+    <form action=""> <!-- form 속성 : 서버로 입력된 값을 전송하는 단위 
+                            action 속성에 값이 없으면 현재 페이지로 전송-->
+        <h2>input type = "text"<h2> <!-- 생략 가능 -->
+        <input> <!-- type 속성의 기본속성이 text -->
+        <br>
+        <input type="text" size="5"> <!-- size 속성 : 입력 상자의 가로 길이 지정 -->
+        <br>
+        <input type="text" size="5" maxlength="4"> <!-- maxlength 속성 : 최대 입력 글자 수 지정 -->
+        <br>
+        <input type="text" placeholder="검색어를 입력하세요."> <!-- placeholder 속성 : 입력 상자에 힌트 문구 표시 -->
+        <br>
+        <input type="text" required> <!-- required 속성 : 필수 입력 상자 지정 -->
+        <br>
+        <input type="text" value="날짜"> <!-- value 속성 : 입력 상자에 기본값 지정 -->
+        <br>
+        <input type="text" value="날짜" readonly> <!-- readonly 속성 : 읽기 전용 입력 상자 지정 -->
+        <br>
+        <input type="text" value="날짜" disabled> <!-- disabled 속성 : 비활성화된 입력 상자 지정 -->
+
+        <h2>input 태그의 그 외 type 속성</h2>
+        <p>password</p> 
+        <input type="password" placeholder="비밀번호">
+        <p>number : 숫자 입력</p> 
+        <input type="number" placeholder="1~12" min="1" max="12">
+        <p>email : 이메일 입력</p>
+        <input type="email" placeholder="이메일">
+        <p>date : 날짜 입력</p>
+        <input type="date" placeholder="날짜">
+        <p>color : 색상표 선택</p>
+        <input type="color">
+        <p>hidden : 값만 존재. 화면에 보이지 않음</p>
+        <input type="hidden" value="hidden value">
+        <p>file : 파일선택 창. 파일 업로드시 파일 선택</p>
+        <input type="file">
+
+        <hr>
+        <p>button : 버튼. 이벤트 처리로 기능설정</p>
+        <input type="button" value="버튼">
+        <p>submit : 버튼. form 태그에 입력된 값들을 서버로 전송</p>
+        <input type="submit" value="전송">
+        <p>reset : 버튼. form 태그에 입력된 값을 초기화</p>
+        <input type="reset" value="초기화">
+        
+        <hr>
+        <p>radio : 단일 선택. name 속성값 기준으로 단일 선택됨</p>
+        <input type="radio" name="gender" value="male">남
+        <input type="radio" name="gender" value="female">여
+        <input type="radio" name="pass" value="1">합격
+        <input type="radio" name="pass" value="0">불합격
+
+        <p>check : 다중 선택</p>
+        <input type="checkbox" name="hobbies" value="축구">축구
+        <input type="checkbox" name="hobbies" value="요리">요리
+        <input type="checkbox" name="hobbies" value="여행">여행
+        
+        <h2>fieldest : 입력요소들의 그룹화</h2>
+        <fieldset>
+            <legend>성별</legend>
+            <label for="male2">남</label>
+            <input type="radio" name="gender" value="male" id="male2">
+            <label for="female2">여</label>
+            <input type="radio" name="gender" value="female" id="female2">
+        </fieldset>
+        <fieldset>
+            <legend>취미</legend>
+            <input type="checkbox" name="hobbies" value="축구">축구
+            <input type="checkbox" name="hobbies" value="요리">요리
+            <input type="checkbox" name="hobbies" value="여행">여행
+        </fieldset>
+</body>
+</html>
