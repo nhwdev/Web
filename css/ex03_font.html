@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>font 관련 속성</title>
+    <style>
+        p {
+            /* font-family : 맑은 고딕 글자체 변경. 폰트가 없으면 sans-selif(default) 사용 */
+            font-family: "맑은 고딕", sans-serif;
+            font-family: "궁서", serif;
+            font-size : 32px; /* 글자 크기. default size : 16px */
+            font-weight: 900; /* 글자 굵기. 100 ~ 900 */
+            font-style: italic; /* italic 글꼴 */
+            text-align: center; /* 가운데 정렬. block에서만 적용 */
+            text-decoration: none; /* underline: 밑줄, line-through: 취소선, none: 선없음*/
+            text-shadow: 10px 10px 5px red; /* 그림자 표시. x축 y축 blur크기 blur 색상*/
+        }
+        pre {
+            line-height: 20px; /* 행의 높이 : 세로 기준 가운데 정렬 */
+            letter-spacing: 1px;
+            color: rgb(0,0,0); /* 검정색 r:red, g:green, b:blue => 빛의 3원색 */
+            color: rgb(255,255,255); /* 흰색 */
+            color: rgb(255,0,0); /* 빨강색 */
+            color: #FFFF00; /* #RRGGBB : 16진수로 표현. #FFFFFF:흰색, #000000: 검정색 */
+            color: rgba(0, 0, 0, 0.5); /* a: alpha(투명도) : 0(투명) ~ 1(불투명) */
+        }
+        a {
+            text-align: center; /* inline-level 에서는 가운데 정렬X */
+        }
+        div{
+            text-align: center; /* block-level 에서는 가운데 정렬O */
+        }
+        h1{
+            /*
+            * 글자의 외곽선 효과 : 표준화 전. 현재 표준화 추진중
+            * -webkit : 벤더프리픽스 => 속성 앞에 브라우저 종류 지정
+            * -webkit : 크롬, 사파리
+            * -moz : 파이어폭스
+            * -o : 오페라
+            */
+            color: yellow; /* 글자 색 */
+            -webkit-text-stroke-color: crimson; /* 글자의 외곽선 색 */
+            -webkit-text-stroke-width: 3px; /* 글자의 외곽선 굴기 */
+        }
+    </style>
+</head>
+<body>
+    <p>Hello World</p>
+    <pre>Nice to Meet you</pre>
+    <pre>Good</pre>
+    <h1>I'm Fine</h1>
+    <div style="text-align: center;"><a>Contact Us</a></div>
+</body>
+</html>

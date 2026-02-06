@@ -1,0 +1,37 @@
+    <!--
+    * CSS (Cascade Style sheet)
+        - 기능 : 문서 스타일 지정
+        - 방식
+            inline : 태그 내부에 style 속성으로 스타일 지정
+            internal : <head> 태그 내부에 <style> 태그로 지정
+            external : 별도의 css 파일을 만들어서 <link> 태그로 스타일 지정
+        - 구현방식
+            선택자 (요소 선택) {
+                프로퍼티1(속성) : 값1;
+                프로퍼티2(속성) : 값2;
+        }
+        - 주석: /* ... */
+    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>internal css</title>
+    <style>
+        /* internal 방식 : 현재 페이지에서만 적용 가능한 css */
+        h1 {
+            color : crimson;
+        }
+        p {
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <p>Hello World</p>
+    <p style="font-size: 10px;">Hello World</p> <!-- inline 방식의 css : 요소 한개에만 적용 -->
+</body>
+</html>

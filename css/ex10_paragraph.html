@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 관련 속성</title>
+    <style>
+        #td1{text-decoration:underline;}
+        #td2{text-decoration:line-through;}
+        #td3{text-decoration:overline;}
+        #td4{text-decoration:none;}
+        .shadow {
+            font-size: 50;
+            font-weight: bolder;
+        }
+        #ts1 {
+            color: orange; /* 글자색 */
+            text-shadow: 5px 5px; /* x축 y축 */
+        }
+        #ts2 {
+            color: white;
+            text-shadow: 0px 0px 10px yellowgreen; /* x축 y축 blur color */
+        }
+        #ts3 {
+            text-shadow: 0px -5px 4px yellow, /* x축 y축 blur color, */
+            0px -10px 8px orange, /* x축 y축 blur color, */
+            0px -15px 15px blue; /* x축 y축 blur color */
+        }
+        #c {
+            color: red; /* 색상명 */
+            color: #ffff00; /* 16진수, RRGGBB, 대소문자O */
+            color: #FFFF00;
+            color: rgb(62,27,232,0.5); /* rgb(0~255(red), 0~255(green), 0~255(blue), (0~1)투명도 */
+            color: hsl(360, 100%, 50%); /* hsl(색조, 채도, 밝기) */
+            /* 
+            *   색조(0~360) : 0: 빨강, 120: 초록, 240: 파랑, 360: 빨강
+            *   채도(0%~100%) : 선명도% 100: default
+            *   밝기(0%~100%) : 0%: 검정, 50%: default, 100%: 흰색
+            */
+            color: hsla(360, 100%, 50%, 0.3); /* hsl(색조, 채도, 밝기, 투명도) */
+        }
+    </style>
+</head>
+<body>
+    <h3>text-decoration : 텍스트에 줄을 긋거나 기존의 줄을 없앨 때 사용</h3>
+    <pre>
+        선택자{text-decoration: none | underline | overline | line-through}
+    </pre>
+    <ul>
+        <li id="td1">텍스트 영역 아래 줄 긋기</li>
+        <li id="td2">텍스트 영역 중간에 줄 긋기</li>
+        <li id="td3">텍스트 영역 위에 줄 긋기</li>
+    </ul>
+    <a id="td4" href="https://www.naver.com" taget="_balnk">네이버로</a>
+    <hr>
+    <h3>text-transform : 대소문자 변환</h3>
+    <pre>
+        선택자 {text-transform: uppercase | lowercase | capitalize}
+    </pre>
+    <ul>
+        <li style="text-transform: uppercase;">uppercase : 대문자로</li>
+        <li style="text-transform: lowercase;">lowercase : 소문자로</li>
+        <li style="text-transform: capitalize;">capitalize : 첫글자만 대문자로</li>
+    </ul>
+    <hr>
+    <h3>text-shadow : 텍스트에 그림자 효과를 줄 때 사용</h3>
+    <pre>
+        선택자 {
+            text-shadow : 가로거리(X) 세로거리(Y) [번짐정도] [색상];
+        }
+    </pre>
+    <div>
+        <span class="shadow" id="ts1">HTML</span><br><br>
+        <span class="shadow" id="ts2">HTML</span><br><br>
+        <span class="shadow" id="ts3">HTML</span>
+    </div>
+    <h3>
+        text-align : 텍스트 정렬에 사용되는 속성 <br>
+        line-height: 줄 간격 조절에 사용되는 속성
+    </h3>
+    <h4>왼쪽 정렬(기본값)</h4>
+    <p style="text-align: left; line-height: 50px;">
+    공무원은 국민전체에 대한 봉사자이며, 국민에 대하여 책임을 진다. 대통령이 궐위된 때 또는 대통령 당선자가 사망하거나 판결 기타의 사유로 그 자격을 상실한 때에는 60일 이내에 후임자를 선거한다. 국가는 사회보장·사회복지의 증진에 노력할 의무를 진다. 국가원로자문회의의 의장은 직전대통령이 된다. 다만, 직전대통령이 없을 때에는 대통령이 지명한다.
+    대통령으로 선거될 수 있는 자는 국회의원의 피선거권이 있고 선거일 현재 40세에 달하여야 한다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 계엄을 선포한 때에는 대통령은 지체없이 국회에 통고하여야 한다. 대통령은 법률안의 일부에 대하여 또는 법률안을 수정하여 재의를 요구할 수 없다.
+    </p>
+    <h4>오른쪽 정렬</h4>
+    <p style="text-align: right; line-height: 3em;">
+    공무원은 국민전체에 대한 봉사자이며, 국민에 대하여 책임을 진다. 대통령이 궐위된 때 또는 대통령 당선자가 사망하거나 판결 기타의 사유로 그 자격을 상실한 때에는 60일 이내에 후임자를 선거한다. 국가는 사회보장·사회복지의 증진에 노력할 의무를 진다. 국가원로자문회의의 의장은 직전대통령이 된다. 다만, 직전대통령이 없을 때에는 대통령이 지명한다.
+    대통령으로 선거될 수 있는 자는 국회의원의 피선거권이 있고 선거일 현재 40세에 달하여야 한다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 계엄을 선포한 때에는 대통령은 지체없이 국회에 통고하여야 한다. 대통령은 법률안의 일부에 대하여 또는 법률안을 수정하여 재의를 요구할 수 없다.
+    </p>
+    <h4>가운데 정렬</h4>
+    <p style="text-align: center; line-height: 200%;">
+    공무원은 국민전체에 대한 봉사자이며, 국민에 대하여 책임을 진다. 대통령이 궐위된 때 또는 대통령 당선자가 사망하거나 판결 기타의 사유로 그 자격을 상실한 때에는 60일 이내에 후임자를 선거한다. 국가는 사회보장·사회복지의 증진에 노력할 의무를 진다. 국가원로자문회의의 의장은 직전대통령이 된다. 다만, 직전대통령이 없을 때에는 대통령이 지명한다.
+    대통령으로 선거될 수 있는 자는 국회의원의 피선거권이 있고 선거일 현재 40세에 달하여야 한다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 계엄을 선포한 때에는 대통령은 지체없이 국회에 통고하여야 한다. 대통령은 법률안의 일부에 대하여 또는 법률안을 수정하여 재의를 요구할 수 없다.
+    </p>
+    <h4>가운데 정렬</h4>
+    <p style="text-align: justify;">
+    공무원은 국민전체에 대한 봉사자이며, 국민에 대하여 책임을 진다. 대통령이 궐위된 때 또는 대통령 당선자가 사망하거나 판결 기타의 사유로 그 자격을 상실한 때에는 60일 이내에 후임자를 선거한다. 국가는 사회보장·사회복지의 증진에 노력할 의무를 진다. 국가원로자문회의의 의장은 직전대통령이 된다. 다만, 직전대통령이 없을 때에는 대통령이 지명한다.
+    대통령으로 선거될 수 있는 자는 국회의원의 피선거권이 있고 선거일 현재 40세에 달하여야 한다. 국가는 농업 및 어업을 보호·육성하기 위하여 농·어촌종합개발과 그 지원등 필요한 계획을 수립·시행하여야 한다. 계엄을 선포한 때에는 대통령은 지체없이 국회에 통고하여야 한다. 대통령은 법률안의 일부에 대하여 또는 법률안을 수정하여 재의를 요구할 수 없다.
+    </p>
+    <b style="text-align: center;">text-align은 블록레벨 요소에서만 적용 가능함</b>
+    <h3>color : 텍스트의 색상 설정</h3>
+    <pre id="c">
+        color : 색상명 | 16진수 | rgb(R,G,B) | rgba(R,G,B,0~1투명도) 
+                | hsl(색조,채도,밝기) | hsla(색조,채도,밝기,투명도)
+    </pre>
+    
+</body>
+</html>

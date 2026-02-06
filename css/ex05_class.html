@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class 속성</title>
+    <style>
+        .red_text { /* 태그들 중 class='red_text' 인 태그들 */
+            color: red;
+        }
+        .big_text { /* 태그들 중 class='big_text'인 태그들 */
+            font-size: 35px;
+        }
+    </style>
+    <!--
+    * class 속성 : 모든 태그에 사용되는 속성. 여러개의 태그들의 그룹을 의미
+    *              => 같은 class 속성을 가진 태그 여러개 존재 가능
+    * id 속성 : 같은 id 속성 값을 가진 태그는 하나만 가능.
+
+    * css 선택자 : .class 속성 값을 표현
+    * id  선택자 : #id 속성 값을 표현
+
+    * class 속성의 특징
+    * 1. 전역속성 : 모든 태그에 설정이 가능한 속성임
+    * 2. class 속성이 같은 경우 하나의 style로 처리 가능
+    * 3. 하나의 태그 내에서의 같은 이름을 가진 속성은 반드시 한개만 표현
+    *    => 하나의 태그에 2개의 속성값을 가진 경우 공백 구분
+    *    => class = 'red_text big_text' : 현재 태그는 class 속성이 2가지
+    * 4. class 속성을 선택자로 표현하는 문자는 '.'이다
+    -->
+</head>
+<body>
+    <p class="red_text big_text">Hello World : 빨강색 큰 문자</p>
+    <p class="red_text">빨강색 문자</p>
+    <p>일반적인 p태그</p>
+    <p class="big_text">큰 글자 태그:p</p>
+    <h1 class="red_text">빨강색 문자:h1</h1>
+</body>
+</html>

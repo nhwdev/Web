@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기타 선택자</title>
+    <link rel="stylesheet" href="ex07.css" type="text/css">
+</head>
+<body>
+    <!------------------------------------------------>
+    <h2>1.속성 선택자</h2>
+    <p>
+        선택하고자 하는 태그의 속성을 활용하여 선택<br>
+        선택자 뒤에 []를 이용하여 사용함
+    </p>
+    <pre>
+        선택자[속성 = 속성값] {...} : 속성 = 속성값인 경우
+        선택자[속성 ~= 속성값] {...} : 속성에 속성값이 포함된 경우
+        선택자[속성 |= 속성값] {...} : 속성값이 - 기준으로 정확히 일치
+        선택자[속성 ^= 속성값] {...} : 속성값으로 시작
+        선택자[속성 $= 속성값] {...} : 속성값으로 종료
+        선택자[속성 *= 속성값] {...} : 속성값을 포함
+    </pre>
+    <div class="div-class" name="name1">div1</div>
+    <div class="div-class" name="name2">div2</div>
+    <div class="div-class" name="name3 name1">div3</div>
+    <div class="class-div" name="name3">div4</div>
+    <hr>
+    <!------------------------------------------------>
+    <h2>2.자손(자식) 선택자와 후손 선택자</h2>
+    <p>
+        많은 요소들이 중첩되어 있는 경우<br>
+        자손(자식): 바로 하위의 요소들<br>
+        후손 : 하위 요소들 전부
+    </p>
+    <pre>
+        자손 선택자 : >
+        a > b {
+            스타일 속성 : 값;
+        }
+        후손 선택자 : 공백
+        a b {
+            스타일 속성 : 값;
+        }
+    </pre>
+    <div id="test1">
+        <h4>div의 자손이면서 후손입니다.</h4>
+        <h4>div의 자손이면서 후손입니다.</h4>
+        <ul>div의 자손이면서 후손입니다.
+            <li>ul의 자손이면서 div의 후손입니다.</li>
+            <li>ul의 자손이면서 div의 후손입니다.</li>
+        </ul>
+        <div>
+            <h4>#test1의 후손 h4 태급입니다.</h4>
+        </div>
+        <ol>div의 자손이면서 후손입니다.
+            <li>ol의 자손이면서 div의 후손입니다.</li>
+            <li>ol의 자손이면서 div의 후손입니다.</li>
+        </ol>
+    </div>
+    <!------------------------------------------------>
+    <h3>3.동위 선택자(같은 레벨의 요소)</h3>
+    <p>
+        동위 관계에 있는 뒤에 위치한 특정 요소 선택
+    </p>
+    <pre>
+        1. a 요소 바로 뒤에 있는 b 요소 한개
+        a+b {
+            스타일속성: 값;
+        }
+        2. a요소 바로 뒤에 있는 모든 b 요소 전부
+        a~b {
+            스타일 속성: 값;
+        }
+    </pre>
+    <div>div1</div>
+    <div id="test2">div2</div><div>div3</div>
+    <div>div4</div>
+    <ul>ul</ul>
+    <div>div5</div>
+    <!------------------------------------------------>
+    <h3>4.반응 선택자</h3>
+    <p>사용자의 움직임에 따라 적용 되는 선택자</p>
+    <pre>
+        1.  특정요소에 클릭되는 순간 스타일 반영
+            선택자 : active {스타일속성:값;}
+        2.  특정요소에 마우스가 올라온 순간 스타일 반영
+            선택자 : hover {스타일속성:값;}
+    </pre>
+    <div id="active-test" class="area">active테스트</div><br>
+    <div id="hover-test" class="area">hover테스트<button>버튼</button></div>
+    </div><br>
+    <!------------------------------------------------>
+    <h3>5.상태 선택자</h3>
+    <p>
+        요소의 상태에 따라 선택되는 태그
+    </p>
+    <pre>
+        1.  체크된(check) 상태의 요소에 스타일 설정, 선택자 : checked
+        2.  초점(focus)에 맞춰진 input 요소에 스타일 설정, 선택자 : focus
+        3.  활성화/비활성화 된 요소에 스타일 설정
+            선택자 : enabled
+            선택자 : disabled
+    </pre>
+    <input type="checkbox" id="apple"><label for="apple">사과</label>
+    <input type="checkbox" id="banana"><label for="banana">바나나</label>
+    <br>
+    아이디:<input type="text" name="userid"><br>
+    비밀번호:<input type="password" name="userPwd" disabled>
+    <br><br>
+    <button>클릭 가능</button><button disabled>클릭 불가능</button>
+</body>
+</html>

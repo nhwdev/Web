@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목록 관련 스타일</title>
+    <style>
+        ul{
+            list-style-type: disc; /* default */
+            list-style-type: circle;
+            list-style-type: square;
+            list-style-type: none;
+            list-style-image: url('icon.png');
+            list-style-position: inside;
+            list-style-position: outside;
+        }
+        ol {
+            list-style-type: decimal; /* default */
+            list-style-type: decimal-leading-zero; /* 01, 02, 03, ... */
+            list-style-type: lower-alpha; /* a, b, c, ... */
+            list-style-type: upper-alpha; /* A, B, C, ... */
+            list-style-type: lower-latin; /* a, b, c, ... */
+            list-style-type: upper-latin; /* A, B, C, ... */
+            list-style-type: lower-roman; /* i, ii, iii, ... */
+            list-style-type: upper-roman; /* I, II, III, ... */
+            list-style-type: disc; /* ul */
+            list-style-image: url('icon.png');
+        }
+    </style>
+</head>
+<body>
+    <h1>목록 관련 스타일 (list~)</h1>
+    <h3>list-style-type : 불릿기호 변경시 사용</h3>
+    <h3>list-style-image : 불릿기로호로 이미지를 적용시키고자 할 때</h3>
+    <h3>list-style-position : 불릿기호의 위치를 조정할 때 사용</h3>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul><br><br>
+    <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+</body>
+</html>

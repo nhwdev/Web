@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기본 선택자</title>
+    <style>
+        * {
+            color: blue;
+        }
+        /* h3 태그의 배경색(background-color)을 노랑색으로 변경 */
+        h3 {
+            background-color: yellow;
+        }
+        /* id = idTest1 태그의 글자색 : red, 배경색 : green 변경 */
+        #idTest1 {
+            color: red;
+            background-color: green;
+        }
+        /* 
+        *  clTest1 class 속성값의 글자색 : yellowgreen 
+        *  clTest2 class 속성값의 글자크기 : 30px로 설정
+        */
+        .clTest1 {
+            color: yellowgreen;
+        }
+        .clTest2{
+            font-size: 30px;
+        }
+        /* p, pre 태그의 글자색을 토마토색으로 변경 */
+        p,pre {
+            color: tomato;
+        }
+        /* p 태그 중 class 속성이 clTest1인 태그의 글자를 굵게, 배경색 green gusrud */
+        p.clTest1 {
+            font-weight: bold;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h3>선택자란</h3>
+    <p>
+        특정 html 요소를 선택할 때 사용하는 기능<br>
+        선택자로 해당요소(태그)를 선택하여 원하는 스타일 또는 기능을 적용
+    </p>
+    <h3>1. 모든(전체) 선택자 : *</h3>
+    <pre>
+        * {
+            스타일속성:값;
+        }
+    </pre>
+    <hr>
+    <h3>2. 태그선택자 : 태그명</h3>
+    <pre>
+        태그명 : {
+            스타일 속성 : 값;
+        }
+    </pre>
+    <hr>
+    <h3>3. 아이디 선택자 : #아이디속성값</h3>
+    <p>
+        현재 문서의 특정 html 요소 중 딱 한개만 선택하고자 할 때 사용함<br>
+        단 id 속성은 유일한 값으로 설정해야 함.
+    </p>
+    <pre>
+        #아이디속성값 {
+            스타일 속성 : 값;
+        }
+    </pre>
+    <ol>
+        <li>아이디 선택자 : 테스트</li>
+        <li id="idTest1">idTest1 아이디 선택자</li>
+        <li id="idTest1">아이디 선택자</li>
+    </ol>
+    <hr>
+    <h3>4. 클래스 선택자 : .클래스속성값</h3>
+    <p class="clTest1">
+        현재 페이지내에서 원하는 요소 여러개를 함께 선택할때 사용
+    </p>
+    <pre>
+        .클래스속성값 {
+            스타일속성 : 값;
+        }
+    </pre>
+    <ul>
+        <li class="clTest1">clTest1 클래스 선택자</li>
+        <li class="clTest2">clTest1 클래스 선택자</li>
+        <li class="clTest1 clTest2">clTest1 clTest2 클래스 선택자</li>
+        <li>일반 li 태그</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,117 @@
+/* 속성 선택자 ======================================= */
+/* div 태그 중 name 속성값이 name1인 태그 */
+div[name=name1] {
+    background-color: orangered;
+}
+/* div 태그 중 name 속성값이 name1을 포함하고 있는 태그 */
+div[name~=name1] {
+    background-color: yellow;
+}
+/* div 태그 중 class 속성값이 class로 시작하는 태그 (-로 구분) */
+div[class|=class] {
+    background-color: aqua;
+}
+/* div 태그 중 name 속성값이 na로 시작하는 태그 */
+div[name^=na] {
+    background-color: blue;
+}
+/* div 태그 중 class 속성값이 ss로 끝나는 태그 */
+div[class$=ss] {
+    background-color: pink;
+}
+div[class*=i] {
+    background-color: yellow;
+    color: red;
+}
+
+/* 자손 선택자, 후손 선택자 ============================*/
+/* #test1의 모든 자손 요소들 */
+#test1 > * {
+    background-color: pink;
+}
+/* #test1의 자손 요소 중 h4 태그 */
+#test1 > h4 {
+    background-color: beige;
+}
+/* #test1의 자손요소 중 ul태그의 li 요소 */
+/* #test1 > ul > li {
+    background-color: cadetblue;
+} */
+/* #test1의 후손요소 */
+#test1 li {
+    background-color: gold;
+}
+
+/* 동위 레벨 ========================================= */
+/* #test2인 태그와 같은 위치의 div 태그 한개 */
+#test2+div {
+    background-color: yellow;
+}
+/* #test2인 태그와 같은 위치의 모든 div 태그들 */
+#test2~div {
+    background-color: green;
+}
+/* #test2인 태그와 같은 위치의 모든 ul 태그들 */
+#test2~ul {
+    background-color: red;
+}
+/* #test2인 태그 이후의 ul 태그 한개 */
+#test2+ul {
+    background-color: red;
+}
+
+/* 반응 선택자 ======================================= */
+.area {
+    background-color: yellowgreen;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+/* #active-test인 태그 클릭한 경우 */
+#active-test:active {
+    background-color: yellow;
+    columns: red;
+}
+/* #hover-test의 영역에 마우스가 존재하는 경우 */
+#hover-test:active {
+    background-color: maroon;
+    color: white;
+}
+/* #hover-test의 하위태그인 button 태그에 마우스가 존재하는 경우 컬러 변경 */
+#hover-test:hover>button{
+    background-color: black;
+    color: yellow;
+}
+/* #hover-test의 하위태그인 button 태그에 마우스를 클릭한 경우 maroon바탕에 흰글씨로 변경하기 */
+#hover-test>button:active{
+    background-color: blue;
+    color: white;
+}
+
+/* 상태 선택자 ======================================= */
+/* input 태그 중 type 속성이 checkbox 이면서 선택된 태그 */
+input[type=checkbox]:checked {
+    width: 20px;
+    height: 20px;
+}
+/* 선택된 checkbox 태그의 크기를 font-size:20px, 굵은 글씨 */
+input[type=checkbox]:checked+label {
+    font-size: 20px;
+    font-weight: bold;
+}
+/* input 태그 중 name 속성의 값이 user로 시작하는 태그에 focus가 있는 경우 */
+input[name^=user]:focus{
+    background-color: pink;
+}
+/* 사용 가능한 button의 배경색을 violet으로 설정 */
+button:enabled {
+    background-color: violet;
+}
+/* 사용이 불가능한 button의 배경색을 silver으로 설정 */
+button:disabled {
+    background-color: red;
+}
+/* input 태그 중 name 속성의 값이 user로 시작하는 태그가 사용이 불가능한 경우 바탕색을 변경하기 */
+input[name^=user]:disabled {
+    background-color: red;
+}
