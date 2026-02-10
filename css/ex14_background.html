@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배경 관련 속성</title>
+    <style>
+        #div-bg{
+            /* 테두리 : 30px 실선 파랑 */
+            border: 30px solid blue;
+            padding: 20px;
+            width: 50%; /* 화면 크기의 50%로 크기 지정 */
+            box-sizing: border-box; /* border 범위도 width의 포함 */
+        }
+        .test {
+            margin: 30px;
+            background-color: yellow;
+            border: 10px dotted black;
+            padding: 20px;
+        }
+        #test1{
+            background-clip: border-box; /* 기본값: 배경색 지정 영역이 테두리 포함 */
+        }
+        #test2{
+            background-clip: padding-box /* padding 영역 포함. border 영역 제외 */;
+        }
+        #test3{
+            background-clip: content-box; /* 내요 부분만 포함. border, padding 영역 제외 */
+        }
+        #bg-img{
+            border: 1px solid black;
+            width: 70%;
+            height: 300px;
+            background-image: url("../html/images/icon.png");
+            background-repeat: repeat; /* default. 해당요소에 이미지가 가득 차게 반복 */
+            background-repeat: repeat-x; /* 가로 부분을 가득차게 반복 */
+            background-repeat: repeat-x; /* 세로 부분을 가득차게 반복 */
+            background-repeat: no-repeat; /* 반복 안됨 */;
+            background-image: url("../html/images/bgsample.jpg");
+            background-size: auto; /* default. 요소의 크기만큼만 보여짐 */
+            background-size: contain; /* 배경 이미지를 모두 보여줌. 공백 존재 가능성 */
+            background-size: cover; /* 배경 이미지를 전부 보이도록 함. 공백없음. 이미지 잘릴 수 있음 */
+            /* background-size: 150px 150px;
+            background-size: 70% 70%; */
+            background-position: left top; /* left(가로축) top(세로축)default*/
+            /* background-position: right bottom;
+            background-position: center center;
+            position: 30px 50px; */
+            background-attachment: scroll; /* default. 배경이 요소와 함께 스크롤됨 */
+            background-attachment: fixed; /* 화면에 고정함. 스크롤시에도 고정된 상태로 보임 */
+            background-attachment: local; /* 요소의 스크롤에 따라 움직임. */
+        }
+    </style>
+</head>
+<body>
+    <h1>배경(background)</h1>
+    <h3>background-color : 배경색 지정</h3>
+    <a href="http://www.w3schools.com/colors/colors_names.asp" target="_blank">색상명 참고 사이트</a>
+    <br>
+    <a href="http://www.colorpicker.com" target="_blank">색상 추출 사이트</a>
+</body>
+    <div id="div-bg">
+        헌법개정안은 국회가 의결한 후 30일 이내에 국민투표에 붙여 국회의원선거권자 과반수의 투표와 투표자 과반수의 찬성을 얻어야 한다. 피고인의 자백이 고문·폭행·협박·구속의 부당한 장기화 또는 기망 기타의 방법에 의하여 자의로 진술된 것이 아니라고 인정될 때 또는 정식재판에 있어서 피고인의 자백이 그에게 불리한 유일한 증거일 때에는 이를 유죄의 증거로 삼거나 이를 이유로 처벌할 수 없다.
+    </div>
+    <hr>
+
+    <h3>background-clip : 배경을 적용시키고자 하는 범위를 지정할 때 사용</h3>
+    <pre>
+    선택자{
+        background-clip:border-box(기본값)|padding-box|content-box;
+    }
+    </pre>
+    <div class="test" id="test1">헌법개정안은 국회가 의결한 후 30일 이내에 국민투표에 붙여 국회의원선거권자 과반수의 투표와 투표자 과반수의 찬성을 얻어야 한다. 피고인의 자백이 고문·폭행·협박·구속의 부당한 장기화 또는 기망 기타의 방법에 의하여 자의로 진술된 것이 아니라고 인정될 때 또는 정식재판에 있어서 피고인의 자백이 그에게 불리한 유일한 증거일 때에는 이를 유죄의 증거로 삼거나 이를 이유로 처벌할 수 없다.</div>
+    <div class="test" id="test2">헌법개정안은 국회가 의결한 후 30일 이내에 국민투표에 붙여 국회의원선거권자 과반수의 투표와 투표자 과반수의 찬성을 얻어야 한다. 피고인의 자백이 고문·폭행·협박·구속의 부당한 장기화 또는 기망 기타의 방법에 의하여 자의로 진술된 것이 아니라고 인정될 때 또는 정식재판에 있어서 피고인의 자백이 그에게 불리한 유일한 증거일 때에는 이를 유죄의 증거로 삼거나 이를 이유로 처벌할 수 없다.</div>
+    <div class="test" id="test3">헌법개정안은 국회가 의결한 후 30일 이내에 국민투표에 붙여 국회의원선거권자 과반수의 투표와 투표자 과반수의 찬성을 얻어야 한다. 피고인의 자백이 고문·폭행·협박·구속의 부당한 장기화 또는 기망 기타의 방법에 의하여 자의로 진술된 것이 아니라고 인정될 때 또는 정식재판에 있어서 피고인의 자백이 그에게 불리한 유일한 증거일 때에는 이를 유죄의 증거로 삼거나 이를 이유로 처벌할 수 없다.</div>
+    <hr>
+
+    <h3>배경 이미지 테스트</h3>
+    <pre>
+    선택자{
+        background-image: url("이미지 경로");
+        background-repeat: repeat|repeat-x|repeat-y|no-repeat;
+        background-size: auto|contain|cover|px px|% %;
+        background-position: 좌/우/가운데 위/아래/가운데 | px px | % %;
+        background-attachment:scroll|fixed;
+    }
+    </pre>
+
+    <div id="bg-img" >
+        <button>버튼</button>
+    </div>
+</html>

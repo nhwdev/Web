@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 관련 속성</title>
+    <style>
+        .wrap1{
+            /* overflow: hidden;  하위태그의 크기보다 큰 영역은 보여지지 않음 */ 
+            overflow: auto;    /* 하위태그의 크기보다 큰 영역은 스크롤바가 생김 */
+            /* overflow: scroll;  스크롤바가 생김 */
+            width: 150px;
+            height: 150px;
+            border: 1px solid red;
+        }
+        .wrap1 > div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid gray;
+            float: left;
+        }
+        .wrap2{
+            display: flex;
+            /* flex-flow: nowrap; default. 가로배치 */
+            flex-flow: row wrap; /* 크기 오버시 줄바꿈 */
+            /* flex-direction: row; 행배치. 가로배치. 기본값 */
+            /* flex-direction: column; 세로 배치 */
+            /* flex-direction: row-reverse; 역순으로 행에 배치 */
+            /* flex-direction: column-reverse; 역순으로 열에 배치 */
+            width: 600px;
+            height: 100px;
+            background: antiquewhite;
+            /* float과 justify의 차이점 : 순서 유지 */
+            justify-content: center;
+            justify-content: space-around; /* 균등 배치 */
+            justify-content: flex-start; /* 왼쪽 우선 배치 */
+            justify-content: flex-end;   /* 오른쪽 우선 배치 */
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap1">
+        <div>Box1</div>
+        <div>Box2</div>
+    </div>
+    <div class="wrap2">
+        <div>Box1</div>
+        <div>Box2</div>
+        <div>Box3</div>
+        <div>Box4</div>
+        <div>Box5</div>
+    </div>
+</body>
+</html>

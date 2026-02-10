@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex18.html</title>
+    <style>
+        header,nav,section,article,aside,footer,div{
+            display: block;
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+        .wrap{ /* header, section, footer 하위 태그 */
+            width: 100%;
+            max-width: 1300px; /* 최대 가로 길이 */
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        /* header 부분 */
+        .header{ /* div, nav 하위 태그 */
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        .header_top{
+            height: 80%;
+            display: flex;
+        }
+        .header_logo, .header_alarm{
+            width: 20%;
+        }
+        .header_search{
+            width: 60%;
+        }
+        .header_nav{
+            height: 20%
+        }
+
+        /* section 부분: 내용 부분 */
+        .content_wrap {
+            min-height: 500px;
+            display: flex;
+        }
+        .content_news{
+            width: 70%
+        }
+        .content_side{
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+        }
+        .content_side_myinfo{
+            height: 150px;
+        }
+        .content_side_ad{
+            height:350px;
+        }
+        /* footer 부분: 바닥글 부분 */
+        .footer{
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        .footer_link{
+            height: 20%;
+        }
+        .footer_info{
+            height: 80%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    *   시멘틱태그 :
+    *     1. HTML5 에서 제공되는 태그
+    *     2. div태그 + 내부의 기능 : 의미를 가진 div 태그
+    *     3. 영역 내부에 어떤 정보들이 담겨 있는지 파악하기 위해 의미있는 태그명으로 작성함
+    *     4. 의미가 명확. 가독성↑
+
+    *   header : 머릿말. 가장 화면 위쪽에 존재.
+    *   nav    : 메뉴바. 목차형태의 내용
+    *   section: 본문 내용
+    *   article: 본문 내용의 일부분. 분할하여 재사용 가능한 내용
+    *   aside  : 본문 이외의 내용. 광고, 배너
+    *   footer : 바닥글 (회사소개, 제작정보, 회사정보...)
+    -->
+    <div class="wrap">wrap
+
+        <header class="header">header
+            <div class="header_top">header_top
+                <div class="header_logo">header_logo</div>
+                <div class="header_search">header_search</div>
+                <div class="header_alarm">header_alarm</div>
+            </div>
+            <nav class="header_nav">header_nav</nav>
+        </header>
+
+        <section class="content_wrap">content_wrap
+            <div class="content_news">content_news   
+            </div>
+            <div class="content_side">content_side
+                <div class="content_side_myinfo">content_side_myinfo</div>
+                <div class="content_side_ad">content_side_ad</div>
+            </div>
+        </section>
+
+        <footer class="footer">footer
+            <div class="footer_link">footer_link
+            </div>
+            <div class="footer_info">footer_info
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
