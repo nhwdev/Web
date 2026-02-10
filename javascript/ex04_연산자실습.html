@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자 실습</title>
+    <style>
+        input {text-align: right;}
+        table, tr, td, th {
+            border: 1px solid black;
+            border-collapse: collapse
+        }
+        ::placeholder{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        * 8시간까지는 최저시급을 받고 초과시간에 대해서는 1.5배를 받는다고
+        * 가정할 때. 일당을 출력하기
+    </p>
+    <hr>
+    <table>
+        <caption>임금 계산하기</caption>
+        <tr><th>시간당임금</th><td><input type="text" id="payPerHour" value="" placeholder="임금 입력"></td></tr>
+        <tr><th>근무시간</th><td><input type="text" id="workTime" value="" placeholder="시간"></td></tr>
+        <tr><td colspan="2" align="right"><button type="button" onclick="calc()">총 임금 계산하기</button></td></tr>
+        <tr><th>총 임금</th><td><input type="text" id="totalPay"></td></tr>
+    </table>
+    <script>
+        function calc(){
+            // <... id="payPerHour" value="..." ... > 의 value 속성의 값을 payPerHour 변수 저장
+            let payPerHour = document.getElementById("payPerHour").value
+            console.log(payPerHour,typeof(payPerHour))
+            let workTime = document.getElementById("workTime").value
+            let totalPay = (payPerHour * workTime) + (workTime > 8 ? (payPerHour * 0.5 * (workTime-8)):0)
+            console.log(payPerHour,typeof(payPerHour))
+            console.log(totalPay,typeof(totalPay))
+            document.getElementById("totalPay").value = totalPay;
+            console.log(1 == '1')
+            console.log(1 === '1')
+        }
+    </script>
+</body>
+</html>

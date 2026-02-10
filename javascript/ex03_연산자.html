@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+<body>
+    <script>
+        /* 
+        * 1. 산술연산
+        *   1) 더하기 : +
+        *   2) 빼기   : -
+        *   3) 곱하기 : *
+        *   4) 나누기 : /
+        *   5) 나머지 : %
+        *   6) 증감   : ++, --
+        *   7) 제곱   : ** 예) 2 ** 3 = 8
+        * 2. 비교연산(관계연산) : ==, >, <, >=, <=, ...
+        *   1) 같다
+        *      ==  : 값만 비교 → 예) 1 == '1' : true
+        *      === : 값 + 자료형 비교 → 예) 1 === '1' : false
+        *   2) 같지 않다
+        *      !=  : 값만 비교 → 예) 1 != '1' : false
+        *      !== : 값 + 자료형 비교 → 예) 1 !== '1' : true
+        * 3. 논리 연산 : &&(AND), ||(OR), !(NOT)
+        * 4. 대입 연산 : =, +=, -=, ...
+        * 5. 조건 연산 : (조건식) ? 참 : 거짓
+        * 6. 문자열 연산 : + → 문자열을 더하기.
+        */
+        /*
+        * 최저시급 : 9620원. 8시간까지는 최저시급을 받고 초과시간에 대해서는 1.5배를 받는다고
+        *            가정할 때. 10시간 근무한 경우 일당을 출력하기
+        * 9620 * 10     = 96200
+        * 4810 * (10-8) =  9620
+        * 총급여 : 105820
+        */
+        const payPerHour = 9620
+        let workTime = 10
+        let totPay = (payPerHour * workTime) + 
+                     (workTime > 8 ? (payPerHour * 0.5 * (workTime - 8)): 0)
+        alert("1. 총급여: " + totPay)
+        totPay = (workTime <= 8)? payPerHour * workTime:
+            ((payPerHour * workTime) + (payPerHour * 0.5 * (workTime - 8)))
+        alert("2. 총급여: " + totPay)
+        if(workTime > 8) {
+            alert("3. 총급여" + ((payPerHour * workTime) + (payPerHour * 0.5 * (workTime-8))))
+        } else {
+            alert("3. 총급여" + (payPerHour * workTime))
+        }
+    </script>
+</body>
+</html>

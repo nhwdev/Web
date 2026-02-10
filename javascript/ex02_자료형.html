@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자료형</title>
+</head>
+<body>
+    <script>
+        /*
+        * 자료형이란 : 데이터의 종류. 저장된 데이터의 특징.
+        * A. 기본자료형
+        *   a) number : 정수 / 실수 구분이 없다.
+        *       » NaN(Not a Number) : 숫자가 아닌 경우 : true. 숫자인 경우 : false
+        *       » Infinity : 불능. 0으로 나눈경우
+        *   b) string : 문자 / 문자열. 작은 따옴표(''), 큰 따옴표("") 둘다 사용가능함.
+        *   c) boolean : 논리값. true / false
+        *   d) null : 값이 없다.
+        *   e) undefined : 변수에 값이 저장된 적이 없다.
+        * B. 자바스크립트 변수의 특징
+        *   a) 선언하지 않아도 변수 사용이 가능. 동적 타입
+        *   b) 변수선언시 자료형을 결정하지 않는다.
+        *   c) 변수에 값이 저장될 때 자료형이 결정됨 → 변수의 값이 변경되면 자료형이 변경됨
+        * C. 변수 선언시 사용되는 예약어(키워드)
+        *   a) var
+        *     - 범위 : 함수레벨. 선언된 함수에서만 사용가능한 변수 → 지역변수
+        *     - 같은 변수명으로 다시 선언 가능함
+        *     - 변수의 초기화 생략 가능 (undefined 상태)
+        *   b) let(ES6 이후에 표준)
+        *     - 범위 : 블록레벨{}. 선언된 블록에서만 사용가능한 변수 → 지역변수
+        *     - 같은 변수명으로 다시 선언 불가능함
+        *     - 변수의 초기화 생략 가능 (undefined 상태)
+        *   c) const(ES6 이후에 표준)
+        *     - 범위 : 블록레벨{}. 선언된 블록에서만 사용가능한 변수 → 지역변수
+        *     - 같은 변수명으로 다시 선언 불가능함
+        *     - 변수의 초기화 필수 → 상수. 초기화된 값을 변경 불가
+        * D. 호이스팅(hoisting)
+        *   a) 먼저 사용되는 코드가 존재.
+        *   b) 대상: 변수선언, 함수정의 등
+        */
+        var a // 변수 선언
+        console.log(a) // undefined 상태. 오류발생 안됨
+        var a // 변수 선언 재선언함
+        a =  10
+        console.log(a, typeof a) // 10 'number'. typeof a : a 변수의 자료형
+        a = "Hello world"; // 문자열 값 저장 가능
+        console.log(a,typeof a) // a 변수의 자료형 변경
+        b = false               // 변수의 선언없이 바로 값 저장
+        console.log(b, typeof(b)) // b값 b변수의 자료형
+        c = Math.sqrt(25) // c = 5 로 저장됨. 변수값을 사용함. 나중에 선언됨.
+        var c             // c 변수 선언. 호이스팅됨.
+        console.log(c, typeof(c))
+        /* ================================================================== */
+        let user = 'user1'
+        console.log(user, typeof(user))
+        // let user = 'hong'; // let 변수의 재선언 불가
+        // console.log(user, typeof(user))
+        /* ================================================================== */
+        const pw = 'pw1'
+        console.log(pw, typeof(pw));
+        // pw='1234' // 오류발생. 상수 값은 변경 불가
+        console.log(pw, typeof(pw));
+        /* ================================================================== */
+        if(true){
+            var age = 10;
+        }
+        console.log("age =",age,typeof(age)) //age = 10 number. 블록외부에서 사용이 가능함
+        if(true){
+            let name = '홍길동' // 변수선언
+            const hobby = '운동' // 상수 변수선언
+            console.log("1.name =", name, typeof(name)) // 1. name = '홍길동' string
+            console.log("1.hobby =", hobby, typeof(hobby)) // 1. hobby = '운동' string
+        }
+        console.log("2.name =", name, typeof(name)) // name 값 출력 안됨. 블록 외부에서 사용불가
+        // console.log("2.hobby =", hobby, typeof(hobby)) // 오류발생. 블록 외부에서 접근 불가
+        // const major; // const 변수는 초기화 필수.
+    </script>
+</body>
+</html>

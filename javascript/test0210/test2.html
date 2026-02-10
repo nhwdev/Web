@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습문제2</title>
+<style>
+    input {text-align : right;}
+</style>
+
+</head>
+<body>
+	<h2>간이 계산기 만들기</h2>
+	
+	첫번째 값 : <input type="number" id="num1"><br>
+	두번째 값 : <input type="number" id="num2"><br>
+	
+	<input type="button" onclick="calculator(this.value)" value="+"> 
+	<input type="button" onclick="calculator(this.value)" value="-" > 
+	<input type="button" onclick="calculator(this.value)" value="x" > 
+	<input type="button" onclick="calculator(this.value)" value="/" > 
+	<input type="button" onclick="calculator(this.value)" value="%"> <br><br>
+	계산결과 : <span id="result"></span>
+    
+	<hr>
+	
+	<pre>
+	<b>Hint</b> 
+	1. 함수에 인자값을 넘길 경우 함수 처리 방법   
+	ex&gt; -> onclick="calculator(this.value)"; 와 같이 
+			해당 태그의 value값을 함수에 인자값으로 넘길 수 있음 
+		-> function calculator(op) { op을 통해 조건처리 } 처리 할 수 있음 
+	2. if 문을 사용하시면 됩니다.
+	</pre>
+	<script>
+		function calculator(op){
+			let num1 = Number(document.getElementById("num1").value)
+			let num2 = Number(document.getElementById("num2").value)
+			let result = document.getElementById("result")
+			if(op === "+"){
+				result.innerHTML = num1 + num2
+			}
+			if(op === "-"){
+				result.innerHTML = num1 - num2
+			}
+			if(op === "x"){
+				result.innerHTML = num1 * num2
+			}
+			if(op === "/"){
+				result.innerHTML = Math.round(num1 / num2)
+			}
+			if(op === "%"){
+				result.innerHTML = num1 % num2
+			}
+		}
+		</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개요</title>
+</head>
+<body>
+    <!-- 
+    *   html : 웹페이의 틀. 형태
+    *   css  : 스타일. 형태의 색상, 크기, 간격, ...
+    *   javascript : 동작처리 담당.
+    -->
+    <h1>자바 스크립트 개요</h1>
+    <p>
+        HTML페이지의 동작을 사용자의 요구에 맞도록 실행<br>
+        브라우저의 언어(클라이언트 언어)<br>
+        인터프리터 방식의 언어<br>
+        <!-- 
+        *   인터프리터 : 코드를 한줄씩 번역하고, 바로 실행하는 방식
+        *   컴파일방식 : 전체 소스를 하나의 목적파일을 생성함. 자바에서는 바이트코드가 목적파일임
+        *   자바스크립트 : 인터프리터 방식. 목적파일이 없음
+        *                 코드를 한줄씩 번역하고 실행하므로, 문법오류가 발생전까지 실행됨
+        *                 실행 전까지는 문법 오류를 알 수 없음
+        -->
+        // HTML의 주석은 아님. 자바스크립에서 주석.
+    </p>
+    <script>
+        // 한줄 주석 : 실행 안되는 영역
+        /* 
+        * 여러줄 주석
+        */
+        console.log("Hello World")
+    </script>
+    <h1>자바스크립의 특징</h1>
+    <ul>
+        <li>접근제한자 개념 없음</li>
+        <li>변수 선언이 필요 없음. 초기화될때 자료형이 결정됨.</li>
+        <li>웹 환경에서 사용되는 언어. => 보안등의 이유로 제한된 기능을 가짐</li>
+        <li>보안에 취약함: 소스가 외부로 공개됨.</li>
+    </ul>
+
+    <h1>자바스크립트 방식</h1>
+    <ul>
+        <li>인라인(inline): 태그내에 간단히 코드 추가</li>
+        <li>내부(internal): html 파일의 script 태그 내에 코드 추가</li>
+        <li>외부(external): 별도의 *.js 파일로 코드 구현. 파일을 연결하여 사용하는 방식</li>
+    </ul>
+
+    <h3>인라인 방식</h3>
+    <p>
+        &lt;태그 on이벤트명='자바스크립트소스'&gt;<br>
+        &lt;a href='javascript:자바스크립트소스'&gt;문장&lt;a&gt;<br>
+    </p>
+    <!-- window 생략 가능: alert(...), console.log(...) -->
+    <button onclick="window.alert('안녕하세요')">알림창출력</button><br>
+    <button onclick="window.console.log('반갑습니다')">콘솔출력</button><br>
+    <a href="javascript:window.alert('안녕하세요')">a 태그에서 알림창 출력</a><br>
+    <a href="javascript:window.console.log('반갑습니다')">a 태그에서 콘솔 출력</a><br>
+
+    <h3>내부방식(internal)</h3>
+    <p>
+        html 페이지내에 script 태그 영역 내부에서 처리되는 소스<br>
+        script 태그의 위치는 어디든지 가능함. 단 html 태그 내부에 작성하는 것을 권장함
+    </p>
+    <button id="btn">알림창 출력</button>
+    <button onclick="btnclick()">콘솔 출력</button>
+    <!-- 
+    *   이벤트 처리의 구성 요소
+    *   - 이벤트 소스 : 이벤트가 발생된 요소
+    *   - 이벤트 리스너 : 이벤트 발생여부를 감시하고 있는 시스템. onclick
+    *   - 이벤트 핸들러 : 이벤트 발생시 호출되는 함수.
+    *   => 이벤트 등록시 필요한 구성 요소
+    -->
+    <script>
+        /* 
+        * let : 1. 선언 단계        var : 1. 선언 + 초기화 단계
+        *       2. 초기화 단계          : 2. 할당 단계
+        *       3. 할당 단계        const : 선언 + 초기화 + 할당
+        * document: 문서객체 html 문서
+        * getElementById("btn") : id 속성의 값이 btn인 태그(요소) 리턴
+        * let btn = button 객체 저장
+        */
+        let btn = document.getElementById("btn")
+        btn.onclick = function() { // btn.onclick : btn 버튼이 클릭되는 경우. function() 호출
+            alert("알림창 출력: 안녕하세요")
+        }
+        function btnclick() { // 함수의 정의.
+            console.log("콘솔출력:반갑습니다.")
+        }
+    </script>
+    <h3>외부방식(external)</h3>
+    <p>
+        html 파일 외부의 .js 파일에 작성된 자바스크립트 파일을 사용함<br>
+        .js 파일은 &lt;script src="js파일의위치"&gt;&lt;/script&gt; 형식으로 설정함<br>
+    </p>
+    <script src="ex01.js"></script>
+    <button onclick="test()">외부자바스크리븥 파일에서 호출</button>
+</body>
+</html>
