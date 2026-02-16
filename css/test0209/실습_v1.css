@@ -81,12 +81,6 @@ body {
     /* 박스 사이 간격 */
 }
 
-/* 왼쪽 사이드 */
-.content_side {
-    flex: 1;
-    /* 비율 1 */
-}
-
 .content_side img {
     width: 100%;
 }
