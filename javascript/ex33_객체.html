@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+
+<body>
+    <script>
+        /*
+        * 객체(Object)
+        * 1. 여러개의 값으로 구성된 하나의 데이터를 의미함
+        * 2. 중괄호{}를 이용하여 표현함
+        * {
+        *   속성1 : 값1,
+        *   속성2 : 값2, ...
+        * }
+        * 3. 속성 호출하기
+        *   (1) 마침표 : 객체.속성
+        *   (2) []괄호 : 객체['속성']
+        */
+        //객체 생성기기
+        let obj = {
+            'age': 30,
+            'name': '길동',
+            'friend': { // 객체
+                'name': '우치',
+                'phone': '010-1111-2222'
+            },
+            'hobbies': ['여행', '독서', '요리'], // 배열
+            'info': function () {
+                console.log(`이름:'${obj.name}, 나이:${obj.age}, 친구이름:${obj.friend.name}`)
+                // this : 현재 객체
+                console.log(`이름:'${this.name}, 나이:${this.age}, 친구이름:${this.friend.name}`)
+            }
+        };
+        (obj.info)();
+        (obj['info'])();
+        // obj 객체의 속성값 확인하기
+        console.log(obj.name, obj['name']);
+        console.log(obj.age, obj['age']);
+        console.log(obj.friend, obj['friend']);
+        console.log(obj.hobbies, obj['hobbies']);
+        // 친구 이름, 전화번호
+        console.log(obj.friend.name,obj['friend']['name'])
+        console.log(obj.friend.name,obj['friend']['phone'])
+        // 취미를 각각 출력하기
+        for (let i =0; i< obj.hobbies.length; i++){
+            console.log(obj.hobbies[i])
+        }
+        for(let i=0; i< obj['hobbies'].length; i++){
+            console.log(obj['hobbies'][i])
+        }
+        console.log("동적으로 속성 추가하기 ==============================")
+        let computer = {}; // 객체
+        // 속성 추가하기
+        computer.model = 'gram'
+        computer.price = 150
+        console.log(computer)
+        console.log("동적으로 속성 제거하기 ==============================")
+        delete computer.price // computer 객체의 price 속성 제거
+        console.log(computer)
+        console.log("객체의 속성을 for in으로 조회하기 ===================")
+        /*
+        * for in 반복문을 사용할 경우 마침표를 이용한 속성 참조 불가능
+        */
+        let book = {'title':'홍길동전','author':'허균','price':10000}
+        for(let p in book){ // p : 속성명
+            console.log("1: ", p, " : ", book.p) // book.p : book 객체의 p이름의 속성값 리턴
+            console.log("2: ", p, " : ", book[p]) // book[p] : book 객체의 p변수의 값에 해당하는 속성값 리턴.
+        }
+    </script>
+</body>
+
+</html>

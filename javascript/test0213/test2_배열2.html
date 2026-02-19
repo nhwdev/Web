@@ -32,6 +32,8 @@
 			if (!(foods.indexOf(remove.value) == -1)) {
 				foods.splice(foods.indexOf(remove.value), 1)
 			}
+			// foods.indexOf(remove.value) != -1 && foods.splice(foods.indexOf(remove.value), 1)
+			// if문 축약 : && = true || = false
 			foods.push(add.value)
 			console.log(foods.length)
 			remove.value = ""

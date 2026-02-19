@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기존 객체 변경</title>
+</head>
+
+<body>
+    <script>
+        const a = 10
+        document.write(a, ":", typeof (a), "<br>")
+        /* 
+        * Number 객체에 power 함수 추가.
+        * function(n=1) : 매개변수 n이 없으면 기본값 1 설정. default 매개변수
+        */
+        Number.prototype.power = function (n = 1) {
+            return this.valueOf() ** n; // ** : 제곱
+        }
+        document.write("a.power()", a.power(), "<br>") // 10
+        document.write("a.power(2)", a.power(2), "<br>") // 100
+        document.write("a.power(3)", a.power(3), "<br>") // 1000
+        document.write("<hr>")
+        /* 
+        * String 객체에 contain 함수 추가하기
+        */
+        String.prototype.contain = function (data) {
+            return this.indexOf(data) >= 0;
+        }
+        document.write("'abc'.contain('a'): ", 'abc'.contain('a'), "<br>")
+        document.write("'abc'.contain('e'): ", 'abc'.contain('e'), "<br>")
+    </script>
+</body>
+
+</html>

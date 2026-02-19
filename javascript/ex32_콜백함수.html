@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백 함수</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        * 콜백 함수(Callback Function)
+        * 1) 함수에서 다른 함수를 호출할 때 호출되는 함수를 콜백함수라 함.
+        * 2) 어떤 함수를 다른함수의 인수로 전달
+        * 3) 인수로 전달된 함수가 콜백함수라 함.
+        */
+        function info(d1, d2) {
+            console.log(d1, d2);
+        }
+        function func1(d1, d2, func) { // func가 콜백함수로 정의
+            func(d1, d2);
+        }
+        func1("안녕", "홍길동", info); // d1:안녕, d2:홍길동, func : info => 콜백함수
+        info("안녕", "홍길동"); // 콜백함수 아님
+
+        // 익명 함수를 콜백함수로 정의
+        func1("반갑습니다.", "김삿갓", function (d1, d2) {
+            console.log("1: ", d1);
+            console.log("2: ", d2);
+        })
+        // 화살표 함수 이용
+        func1("반갑습니다", "김삿갓", (d1, d2) => {
+            console.log("3: ", d1);
+            console.log("4: ", d2);
+        })
+    </script>
+</body>
+
+</html>

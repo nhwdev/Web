@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 연습</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        let snack = { 'code': 'A1000', 'name': '새우깡', price: 3000 }
+        /*
+        * [결과]
+        * 1. code = A1000
+        * 2. name = 새우깡
+        * 3. price = 3000
+        */
+        let html = "<ol>"
+        for(i in snack){
+            html += `<li> ${i} = ${snack[i]}</li>`
+        }
+        html += "</ol>"
+        document.querySelector("#box").innerHTML = html
+    </script>
+</body>
+
+</html>

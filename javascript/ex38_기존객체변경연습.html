@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기존 객체 변경 연습</title>
+</head>
+
+<body>
+    <h3>Array : 배열을 담당하는 객체</h3>
+    <pre>
+        Array 객체에 contain 함수 추가하기
+    </pre>
+    <script>
+        Array.prototype.contain = function (data) {
+            return this.indexOf(data) != -1
+        }
+        const a = [273, 32, 103, 57, 52]
+        document.write('273 in ', a, ' : ', a.contain(273), "<br>")
+        document.write('100 in ', a, ' : ', a.contain(100), "<br>")
+    </script>
+</body>
+
+</html>

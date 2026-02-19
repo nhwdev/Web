@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 상속</title>
+</head>
+
+<body>
+    <script>
+        // 생성자 함수를 이용한 상속
+        function Animal(name) {
+            this.name = name
+            this.cry = function () { }
+        }
+        function Dog(name) {
+            this.base = Animal // 부모 클래스 설정
+            this.base(name) // 부모 클래스 생성자 호출
+            this.cry = function () {
+                document.write(this.name + ":멍멍<br>") //this.name : Animal 클래스의 name 속성값
+            }
+        }
+        function Cat(name) {
+            this.base = Animal
+            this.base(name)
+            this.cry = function () {
+                document.write(this.name + ":야옹<br>")
+            }
+        }
+        let dog = new Dog("강아지")
+        let cat = new Cat("고양이")
+        dog.cry()
+        cat.cry()
+
+        document.write("<hr>")
+        class Animal2 {
+            constructor(name) {
+                this.name = name
+                this.cry = function () { }
+            }
+        }
+        class Dog2 extends Animal2 { // Animal2 : 부모클래스, Dog2 : 자손클래스
+            constructor(name) {
+                super(name) // 부모클래스 생성자 호출
+                this.cry = function () { document.write(this.name + ":멍멍<br>") }
+            }
+        }
+        class Cat2 extends Animal2 {
+            constructor(name) {
+                super(name)
+                this.cry = function () { document.write(this.name + ":야옹<br>") }
+            }       
+        }
+        let dog2 = new Dog2("강아지")
+        let cat2 = new Cat2("고양이")
+        dog2.cry()
+        cat2.cry()
+    </script>
+</body>
+
+</html>

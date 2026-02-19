@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM_DOM</title>
+</head>
+
+<body>
+    <h1>BOM(Browser Object Mode)</h1>
+    <pre>
+        window 객체 : 자바스크립트의 최상위 객체. 생략가능
+            ↪ location 객체 : 주소창과 관련 있는 객체
+            ↪ screen 객체 : 사용 모니터 정보
+            ↪ navigator 객체 : 브라우저 정보
+            ↪ history 객체 : 페이지 방문 기록
+            ↪ document 객체 : 문서 정보
+    </pre>
+    <!--------------------------------------------------------------------->
+    <h3>location 객체</h3>
+    <p>브라우저 주소창과 관련있는 객체</p>
+    <button onclick="console.log(location)">실행 확인</button><br>
+    <a href="https://www.naver.com">네이버로 이동</a><br>
+    <button onclick="location.href = 'https://www.naver.com'">네이버로 이동</button><br>
+    <button onclick="location.assign('https://www.google.com')">구글로 이동</button><br>
+    <!-- replace 함수는 뒤로가기 사용 불가 -->
+    <button onclick="location.replace('https://www.google.com')">구글로 이동</button><br>
+    <button onclick="location.href = location.href">새로고침</button><br>
+    <button onclick="location.reload()">새로고침</button><br>
+    <!--------------------------------------------------------------------->
+    <h3>screen 객체</h3>
+    <button onclick="console.log(window.screen)">실행 확인</button>
+    <script>
+        console.log("화면 전체 너비 : ", screen.width)      // 모니터의 가로 해상도
+        console.log("화면 전체 높이 : ", screen.height)     // 모니터의 세로 해상도
+        console.log("화면 전체 너비 : ", screen.availWidth) // 작업표시줄 등을 제외한 너비
+        console.log("화면 전체 높이 : ", screen.availHeight)// 작업표시줄 등을 제외한 높이
+        console.log("컬러 깊이 : ", screen.colorDepth)      // 1픽셀 당 비트 수
+    </script>
+    <!--------------------------------------------------------------------->
+    <h3>navigator 객체</h3>
+    <p>브라우저 정보를 제공하는 객체</p>
+    <button onclick="console.log(window.navigator)">실행 확인</button><br>
+    <script>
+        console.log("navigator : =======")
+        console.log("브라우저 언어: ", navigator.language) // ko-kr
+        console.log("온라인 여부: ", navigator.onLine) // true / false
+        console.log("플랫폼 정보: ", navigator.platform) // win32 또는 MacIntel ... os 정보
+        console.log("User Agent: ", navigator.userAgent) // 브라우저 전체 정보를 문자열로 리턴
+        console.log("User AgnetData: ", navigator.userAgentData) // 모바일 브라우저 여부
+    </script>
+    <!--------------------------------------------------------------------->
+    <h3>history 객체</h3>
+    <p>브라우저에서 방문했던 페이지 기록 정보</p>
+    <button onclick="console.log(window.history)">실행 확인</button><br>
+    <pre>
+        history.bakc() : 이전 페이지로 이동
+        history.forward() : 다음 페이지로 이동
+        history.go(1) : 다음페이지로 이동. forward와 동일
+        history.go(-1) : 이전페이지로 이동. back와 동일
+    </pre>
+    <!--------------------------------------------------------------------->
+    <h1>DOM(Document Object Model)</h1>
+    <pre>
+        document
+            ↪ html
+                ↪ head
+                    ↪ meta
+                    ↪ title
+                ↪ body
+                    ↪ div
+                    ↪ ...
+    </pre>
+    <ul>
+        <li>html의 각 요소들을 노드(Node)라고 함</li>
+        <li>노드의 종류<ul>
+                <li>요소노드(Element Node) : 태그 자체</li>
+                <li>텍스트 노드(Text Node) : 태그내에 기록된 내용</li>
+                <li>텍스트 노드가 존재하는 요소 : div, ul, li, ... <시작태그>텍스트노드</시작태그>
+                </li>
+                <li>텍스트 노드가 없는 요소(Empty 태그) : input, img ...
+                    <시작태그 ... />
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!--------------------------------------------------------------------->
+    <button onclick="test1()">요소 생성</button>
+    <div id="area1"></div>
+    <script>
+        function test1() {
+            // 동적으로 요소 생성하기 1 : innerHTML 속성 사용. 문자열 사용
+            document.getElementById("area1").innerHTML = "<h3>안녕하세요</h3>"
+            // 동적으로 요소 생성하기 2 : 함수 이용
+            let eleNode = document.createElement("h3") // <h3></h3>
+            let textNode = document.createTextNode("반갑습니다.") // 반갑습니다
+            eleNode.appendChild(textNode) // <h3>반갑습니다</h3>
+            document.getElementById("area1").appendChild(eleNode)
+        }
+    </script>
+    <!--------------------------------------------------------------------->
+    <h4>텍스트 노드가 없는 요소</h4>
+    <button onclick="test2()">요소 생성</button>
+    <div id="area2"></div>
+    <script>
+        function test2() {
+            let img = document.createElement("img")
+            img.src = "https://cdn.imweb.me/thumbnail/20260107/9a7b16d7cc4c4.png" // <img src="https://..." />
+            img.width = "100" // <img src="https://..." width=100 />
+            img.height = "30" // <img src="https://..." width=100 height=30 />
+            document.getElementById("area2").appendChild(img)
+        }
+    </script>
+    <hr>
+    <!--------------------------------------------------------------------->
+    <h3>노드 삭제 하기</h3>
+    <button onclick="test3()">요소 삭제</button>
+    <script>
+        function test3() {
+            // document.getElementById("area2").firstChild.remove()
+            // document.getElementById("area2").children[0].remove()
+            // document.getElementById("area2").lastChild.remove()
+            const count = document.getElementById("area2").children.length
+            document.getElementById("area2").children[count - 1].remove()
+        }
+    </script>
+</body>
+
+</html>
