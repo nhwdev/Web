@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>객체 생성</title>
+    <style>
+        .area {
+            background-color: lightgray;
+            border: 1px solid black;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2>1. 배열의 값으로 product 객체를 생성하기</h2>
+    <pre>
+        1.  
+        arr = ["망고",4000,"피클",["망고","설탕"]]
+        const product = {
+            pName : "망고"
+            price : 4000,
+            kind : "피클",
+            ingredient : ["망고","설탕"]
+        }
+        생성하기
+    </pre>
+    <h2>2. product 내용 조회하기</h2>
+    <pre>
+        2. product 내용을 목록으로 area1의 내용으로 출력하기
+        
+        [결과]
+        º pName:망고
+        º price:4000
+        º kind:피클
+        º ingredient:망고,설탕
+    </pre>
+    <button onclick="test1();">실행확인</button>
+    <div id="area1" class="area"></div>
+    <script>
+        const product = {
+            "pName": "망고",
+            "price": 4000,
+            "kind": "피클",
+            "ingredient": ["망고", "설탕"]
+        }
+        function test1() {
+            html = "<ul>"
+            for (p in product) {
+                html+=`<li>${p}:${product[p]}</li>`
+            }
+            html += "</ul>"
+            document.querySelector("#area1").innerHTML = html
+        }
+    </script>
+</body>
+
+</html>

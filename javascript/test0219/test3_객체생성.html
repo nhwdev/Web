@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        /*
+        정상체중인지 과체중 인지 판단하기 
+
+        정상범위 : 정상몸무게
+        저체중한계 > 몸무게 : 저체중입니다.
+        과체중한계 < 몸무게 : 과체중입니다.	 
+        저체중한계 = (this.userheight - 100) * 0.9 - 5;
+        과체중한계 = (this.userheight - 100) * 0.9 + 5;      
+        */
+        class CheckWeight {
+            constructor(name, height, weight) {
+                this.name = name
+                this.height = height
+                this.weight = weight
+            }
+            getResult() {
+                if (((this.height - 100) * 0.9 - 5) > this.weight) {
+                    return `${this.name}는 키${this.height} 몸무게${this.weight} 저체중 입니다.`
+                } else if (((this.height - 100) * 0.9 + 5) < this.weight) {
+                    return `${this.name}는 키${this.height} 몸무게${this.weight} 과체중 입니다.`
+                } else {
+                    return `${this.name}는 키${this.height} 몸무게${this.weight} 정상체중 입니다.`
+                }
+            }
+        }
+        let jang = new CheckWeight("장보리", 168, 62)
+        let park = new CheckWeight("박달재", 180, 83)
+        let choi = new CheckWeight("최배달", 175, 61)
+        document.write(jang.getResult() + "<br>") //정상체중입니다
+        document.write(park.getResult() + "<br>") //과체중입니다.
+        document.write(choi.getResult() + "<br>") //저체중입니다.
+    </script>
+</body>
+
+</html>
