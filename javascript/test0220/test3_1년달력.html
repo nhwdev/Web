@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8">
+   <title>달력 출력하기</title>
+   <style type="text/css">
+      table,
+      tr,
+      td,
+      th {
+         width: 100%;
+         border-collapse: collapse;
+         table-layout: fixed;
+         padding: 10px;
+      }
+
+      .year td {
+         vertical-align: top;
+      }
+
+      th.mon,
+      td.mon {
+         border: 3px solid #bcbcbc;
+         text-align: center;
+         padding: 8px;
+      }
+
+      th.mon {
+         background-color: #e2e2e2;
+         color: #111111;
+      }
+
+      td.mon {
+         background-color: #f2f2f2;
+      }
+
+      caption {
+         color: #111111;
+         font-size: 20px;
+         background-color: #ffffff;
+      }
+
+      .text-red {
+         color: red;
+      }
+
+      .text-blue {
+         color: blue;
+      }
+   </style>
+</head>
+
+<body>
+   <select id="y">
+      <option>2020</option>
+      <option>2021</option>
+      <option>2022</option>
+      <option">2023</option>
+         <option>2024</option>
+         <option>2025</option>
+         <option selected="selected">2026</option>
+         <option>2027</option>
+         <option>2028</option>
+   </select>
+   <input type="button" value="달력보기" onclick="show_cal()">
+   <br><span id="cal"></span>
+   <script>
+      function show_cal() {
+         let day = ["일", "월", "화", "수", "목", "금", "토"]
+         let html = `<table class="year"><caption>${document.querySelector("#y").value}</caption>`;
+         for (let i = 1; i <= 12; i++) {
+            let lastDate = new Date(Number(document.querySelector("#y").value), i, 0); // 첫 요일
+            let firstDay = new Date(Number(document.querySelector("#y").value), i - 1, 1) // 마지막 날
+            if (i % 4 == 1) {
+               html += "<tr>"
+            }
+            html += `<td><table><caption>${i}월</caption>`
+            for (let j = 0; j < lastDate.getDate() + firstDay.getDay() + day.length; j++) {
+               if (j % 7 == 0) {
+                  html += "<tr>"
+               }
+               if (j < 7) {
+                  html += `<th class="mon">${day[j]}</th>`;
+                  continue;
+               }
+               if (j < firstDay.getDay() + day.length) {
+                  html += `<td class="mon"></td>`
+               } else {
+                  html += `<td class="mon">${j - firstDay.getDay() - day.length + 1}</td>`
+               }
+               if (j % 7 == 6) {
+                  html += "</tr>"
+               }
+            }
+            html += "</table></td>"
+            if (i % 4 == 0) {
+               html += "</tr>"
+            }
+         }
+         html += "</table>"
+         document.querySelector("#cal").innerHTML = html
+      }
+   </script>
+</body>
+
+</html>
