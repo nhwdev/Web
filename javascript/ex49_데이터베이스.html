@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexedDB 예제</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 18px;
+        }
+
+        input,
+        button {
+            padding: 6px 10px;
+        }
+
+        #list {
+            margin-top: 10px;
+        }
+
+        .row {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin: 6px 0;
+        }
+
+        .item {
+            padding: 6px 8px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>IndexedDb(웹 DB) - 메모 추가/보기/삭제</h1>
+    <div class="row">
+        <input id="text" placeholder="메모를 입력하세요.">
+        <button id="add">추가</button>
+        <button id="clear">전체 삭제</button>
+    </div>
+    <div id="list"></div>
+    <script>
+        const DB_NAME = "simple1-db";
+        const DB_VERSION = 1;
+        const STORE = 'items';
+        const $ = (id) => document.getElementById(id);
+        const textEl = $("text");
+        const listEl = $("list");
+        // Promise 객체 리턴
+        function openDB() {
+            /*
+            * Promise 객체 : 비동기 작업(종료시점을 알수 없음). 최종 완료 / 실패 표현하는 객체
+            */
+            return new Promise((resolve, reject) => { // 대기 상태
+                const req = indexedDB.open(DB_NAME, DB_VERSION); // Promise 객체에서만 사용가능
+                req.onupgradeneeded = (e) => {
+                    const db = e.target.result;
+                    if (!db.objectStoreNames.contains(STORE)) {
+                        db.createObjectStore(STORE, { keyPath: 'id', autoIncrement: true });
+                    }
+                }
+                req.onsuccess = () => resolve(req.result); // db open 성공
+                req.onerror = () => reject(req.error); // db open 실패
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTS</title>
+</head>
+
+<body>
+    <textarea rows="10" cols="50" id="inText">
+        안녕하세요 자바스크립트 SpeechSynthesis 데모입니다.
+    </textarea>
+    <button onclick="ttsText()">읽기</button>
+    <script>
+        let tts = new SpeechSynthesisUtterance();
+        function ttsText() {
+            tts.text = document.querySelector("#inText").value;
+
+            tts.rate = 1.8;
+            tts.pitch = 2
+
+            speechSynthesis.speak(tts);
+        }
+    </script>
+</body>
+
+</html>

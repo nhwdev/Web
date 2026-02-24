@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타자 연습 게임</title>
+    <style>
+        div {
+            position: absolute;
+        }
+
+        #main {
+            width: 450px;
+            height: 400px;
+            border: 1px solid blue;
+            overflow: hidden;
+        }
+
+        input {
+            position: absolute;
+            top: 410px;
+            left: 10px;
+            size: 200px;
+        }
+
+        #scorearea {
+            position: absolute;
+            top: 410px;
+            left: 210px;
+            border: 1px solid #333333;
+            width: 200px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+        }
+
+        #score {
+            position: relative;
+            left: 30px;
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main"></div>
+    <div style="width:400px">
+        <!-- 
+        * this.value : 입력된값
+        * this: input 태그
+        * onchange : value 값이 변경될 때 발생하는 이벤트. enter키가 눌러지거나, focus에서 벗어날 때
+        *           그 외 : checkbox, select, ...
+        -->
+        <input type="text" onchange="deleteMode(this.value)" id="input">
+        <div id="scorearea">점수:<div id="score"></div>
+        </div>
+    </div>
+    <script>
+        /*
+        * datas.length : 3
+        * datas[0].length : 9
+        * datas[1].length : 7
+        * datas[2].length : 9
+        */
+        let datas = [ // 2차원 배열
+            ["태연", "유리", "윤아", "효연", "수영", "서현", "티파니", "써니", "제시카"],
+            ["정국", "뷔", "지민", "슈가", "진", "알앰", "제이홉"],
+            ["미나", "나연", "다현", "지효", "모모", "채영", "쯔위", "사나", "정연"]
+        ];
+        let cnt = 0; // 점수
+        let words = []; // 화면에 출력되는 단어들을 저장하고 있는 배열
+        let colors = ['red', 'blue', 'orange', 'black']; //글자색
+        let canvasWidth = 400;
+        let canvasHeight = 400;
+        window.onload = function () {
+            createMode();
+            cm = setInterval(createMode, 2000) // 2초에 한번씩 글자 추가
+            mm = setInterval(moveMode, 1500) // 2초에 한번씩 단어 이동
+        }
+        function MovingChar() { // 생성자 함수
+            this.h3 = document.createElement('h3');
+            this.h3.innerHTML = randomData(); // datas 데이터에서 한개의 문자를 선택
+            this.x = random(canvasWidth); // 글자의 가로위치 선택
+            if ((this.x + this.h3.innerHTML.length) > canvasWidth) { // 글자가 #main 영역에 걸쳐서 보여질때.
+                this.x = canvasWidth - (this.h3.innerHTML.length + 1); // 가로 위치를 글자수 + 1 만큼 안쪽으로 변경
+            }
+            this.y = 0; // 글자의 세로 위치 선택
+            this.vY = 10; // 세로 위치 변경 값
+            this.h3.style.position = 'absolute';
+            this.h3.style.left = this.x + 'px';
+            this.h3.style.color = colors[random(colors.length)]; // 글자색 선택
+            document.querySelector("#main").appendChild(this.h3); // h3 태그 화면에 출력
+        }
+        MovingChar.prototype.move = function () { // 세로 위치 변경
+            this.y += this.vY;
+            this.h3.style.top = this.y + 'px';
+        }
+        MovingChar.prototype.remove = function () { // 입력된 글자를 화면에서 제거
+            document.querySelector("#main").removeChild(this.h3);
+        }
+        function createMode() {
+            words.push(new MovingChar());
+        }
+        function moveMode() {
+            for (let i in words) {
+                words[i].move();
+                if (words[i].y >= canvasHeight - 30) { // 단어 중 1개가 바닥에 닿은 경우
+                    document.querySelector("#main").removeChild(words[i].h3);
+                    delete (words[i]);
+                    clearInterval(cm); // 단어 추가 정지
+                    clearInterval(mm); // 단어 이동 정지
+                    for (let j in words) {
+                        words[j].h3.style.color = "gray"; // 글자의 색을 회색으로 변경
+                    }
+                    alert("게임 종료");
+                }
+            }
+        }
+        function random(num) {
+            return Math.floor(Math.random() * num); // 0 ~ num - 1 까지 임의의 정수 리턴
+        }
+        function randomData() {
+            // let num1 = Math.floor(Math.random() * datas.length); // 소녀시대, BTS, TWICE 중 1개를 선택
+            let num1 = random(datas.length);
+            // let num2 = Math.floor(Math.random() * datas[num1].length); // num1에서 선택된 배열의 인덱스 리턴
+            let num2 = random(datas[num1].length);
+            return datas[num1][num2]; // 2차원 배열의 요소 선택
+        }
+        function deleteMode(str) {
+            for (let i in words) {
+                if (words[i].h3.innerHTML == str) {
+                    // document.querySelector("#main").removeChild(words[i].h3); 
+                    words[i].remove();
+                    delete (words[i]);
+                    document.querySelector("#score").innerHTML = ++cnt;
+                }
+            }
+            document.querySelector("#input").value = ""; // 입력된 내용을 초기화
+            document.querySelector("#input").focus(); // 입력칸에 focus 유지
+        }
+    </script>
+</body>
+
+</html>
