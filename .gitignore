@@ -9,6 +9,8 @@ bin/
 build/
 out/
 target/
+dist/
+dist-ssr/
 
 # =====================
 # Eclipse
@@ -38,7 +40,9 @@ META-INF/
 # =====================
 # VSCode
 # =====================
-.vscode/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 *.code-workspace
 
 # =====================
@@ -96,26 +100,39 @@ hibernate.cfg.xml.local
 secrets.properties
 
 # =====================
-# Node.js (React / Vue 등)
+# Node.js / React / Vite
 # =====================
 node_modules/
+.pnp
+.pnp.js
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 .npm
-dist/
+.vite/
+.swc/
+.turbo/
+.parcel-cache/
 
 # =====================
 # 테스트 / 커버리지
 # =====================
 coverage/
+.nyc_output/
 *.exec
 
 # =====================
 # OS
 # =====================
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
 Thumbs.db
+ehthumbs.db
 Desktop.ini
 $RECYCLE.BIN/
 
@@ -125,4 +142,19 @@ $RECYCLE.BIN/
 *.log
 *.tmp
 *.temp
+*.orig
+*.bak
 logs/
+
+# =====================
+# 캐시
+# =====================
+.eslintcache
+*.tsbuildinfo
+.sass-cache/
+
+# =====================
+# 기타
+# =====================
+*.local
+javascript/gameProject/TenGrid.html
