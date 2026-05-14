@@ -28,7 +28,7 @@ function BoardInfo() {
 
                 {/* 헤더 */}
                 <div className="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                    <h5 className="mb-0">{boardName} - 게시판</h5>
+                    <h5 className="mb-0">{boardName}</h5>
                     <span className="badge badge-light">조회수 {board.readcnt}</span>
                 </div>
 
@@ -67,10 +67,11 @@ function BoardInfo() {
                         ← 목록
                     </Link>
                     <div>
-                        <Link to={`/board/boardUpdateForm/${board.num}`} className="btn btn-outline-primary btn-sm mr-1">
+                        <Link to={`/board/boardUpdate/${board.num}`} className="btn btn-outline-primary btn-sm mr-1">
+                        {/*<Link to={`/board/boardUpdateForm/${board.num}`} className="btn btn-outline-primary btn-sm mr-1">*/}
                             수정
                         </Link>
-                        <Link to={`/board/boardDeleteForm/${board.num}`} className="btn btn-outline-danger btn-sm">
+                        <Link to={`/board/boardDelete/${board.num}`} className="btn btn-outline-danger btn-sm">
                             삭제
                         </Link>
                     </div>

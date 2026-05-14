@@ -13,10 +13,10 @@ const BoardList = () => {
     const [boardCount, setBoardCount] = useState(0); // 게시물 등록 건수
     const [start, setStart] = useState(0); // 페이지 시작 번호
     const [end, setEnd] = useState(0); // 페이지 종료 번호
-    const [pageInt, setPageInt] = useState([]); // 현재 페이지
-    const [bottomLine, setBottomLine] = useState([]); // 화면에 보여질 페이지번호의 갯수
-    const [maxPage, setMaxPage] = useState([]); // 최대 페이지
-    const [boardName, setBoardName] = useState([]); // 게시판 종류
+    const [pageInt, setPageInt] = useState(0); // 현재 페이지
+    const [bottomLine, setBottomLine] = useState(0); // 화면에 보여질 페이지번호의 갯수
+    const [maxPage, setMaxPage] = useState(0); // 최대 페이지
+    const [boardName, setBoardName] = useState(""); // 게시판 종류
     const {boardId} = useParams(); // :boardid에 해당하는 값
     const location = useLocation(); // http://localhost:5173/board/BoardList/1
     // http://localhost:5173/board/BoardList/1?page=1 location.search: page=1
@@ -108,16 +108,18 @@ const BoardList = () => {
                 </div>
                 <div className="card-footer bg-white">
                     <ul className="pagination pagination-sm justify-content-center mb-0">
-                        <li className={`page-item ${start - bottomLine < 1 ? 'disabled' : ''}`}>
-                            <Link className="page-link" to={`/board/boardList/${boardId}?page=${start - bottomLine}`}>Previous</Link>
+                        {/* Previous */}
+                        <li className={`page-item ${start <= 1 ? 'disabled' : ''}`}>
+                            <Link className="page-link" to={`/board/boardList/${boardId}?page=${start - 1}`}>이전</Link>
                         </li>
                         {getPage(start, end).map((p) => (
                             <li key={p} className={`page-item ${pageInt === p ? 'active' : ''}`}>
                                 <Link className="page-link" to={`/board/boardList/${boardId}?page=${p}`}>{p}</Link>
                             </li>
                         ))}
+                        {/* Next */}
                         <li className={`page-item ${start + bottomLine > maxPage ? 'disabled' : ''}`}>
-                            <Link className="page-link" to={`/board/boardList/${boardId}?page=${start + bottomLine}`}>Next</Link>
+                            <Link className="page-link" to={`/board/boardList/${boardId}?page=${start + bottomLine}`}>다음</Link>
                         </li>
                     </ul>
                 </div>
