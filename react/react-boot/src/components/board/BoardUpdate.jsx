@@ -61,12 +61,22 @@ function BoardUpdate() {
 
                 {/* 헤더 */}
                 <div className="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                    <h5 className="mb-0">{boardName}</h5>
+                    <h5 className="mb-0">{boardName} - 게시글 수정</h5>
                     <span className="badge badge-light">수정</span>
                 </div>
 
                 {/* 본문 */}
                 <div className="card-body">
+                    {/* 작성자 */}
+                    <div className="form-group">
+                        <label className="text-muted" style={{fontSize: "13px"}}>작성자</label>
+                        <input
+                            type="text"
+                            className="form-control-plaintext"
+                            value={board.name}
+                            readonly
+                        />
+                    </div>
 
                     {/* 제목 */}
                     <div className="form-group">

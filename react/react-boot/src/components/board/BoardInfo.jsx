@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import {Link, useLocation, useParams} from "react-router-dom";
 import dayjs from "dayjs";
+import BoardComment from './BoardComment.jsx';
 
 function BoardInfo() {
     const [board, setBoard] = useState({})
@@ -35,7 +36,8 @@ function BoardInfo() {
                 {/* 본문 */}
                 <div className="card-body">
                     {/* 제목 + 날짜 */}
-                    <h5 className="font-weight-bold mb-1">{board.subject}</h5>
+                    <h5 className="font-weight-bold mb-2">{board.subject}</h5>
+                    <small className="text-info mr-3">작성자: {board.name}</small>
                     <small className="text-muted">
                         {dayjs(board.regdate).format("YYYY-MM-DD")}
                     </small>
@@ -75,8 +77,11 @@ function BoardInfo() {
                             삭제
                         </Link>
                     </div>
-                </div>
 
+                </div>
+                <div className="px-4 pb-4 pt-2" style={{borderTop: "1px solid #e9ecef"}}>
+                    <BoardComment boardNum={board.num} />
+                </div>
             </div>
         </div>
     )

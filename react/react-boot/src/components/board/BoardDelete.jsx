@@ -45,7 +45,7 @@ function BoardDelete() {
 
                 {/* 헤더 */}
                 <div className="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                    <h5 className="mb-0">{boardName}</h5>
+                    <h5 className="mb-0">{boardName} - 게시글 수정</h5>
                     <span className="badge badge-danger">삭제</span>
                 </div>
 
@@ -58,7 +58,8 @@ function BoardDelete() {
                     </div>
 
                     {/* 게시글 미리보기 */}
-                    <h6 className="font-weight-bold mb-1">{board.subject}</h6>
+                    <h5 className="font-weight-bold mb-1">{board.subject}</h5>
+                    <small className="text-info mr-3">작성자: {board.name}</small>
                     <small className="text-muted">{dayjs(board.regdate).format("YYYY-MM-DD")}</small>
                     <div className="mt-2 p-3 bg-light rounded text-muted small">
                         {board.content}

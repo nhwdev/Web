@@ -1,14 +1,24 @@
 import {useNavigate, useParams} from "react-router-dom";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function BoardForm() {
     const navigate = useNavigate();
+    const [boardName, setBoardName] = useState("");
     const [gName, setGname] = useState("");
     const [pass, setPass] = useState("");
     const [subject, setSubject] = useState("");
     const [content, setContent] = useState("");
     const [file2, setFile2] = useState("");
     const {boardId} = useParams();
+
+    useEffect(() => {
+        fetch("http://localhost:8080/board/boardList?boardId=" + boardId)
+            .then((resp) => resp.json())
+            .then(json =>{
+                setBoardName(json.boardName);
+            })
+    }, []);
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,7 +49,7 @@ function BoardForm() {
 
                 {/* 헤더 */}
                 <div className="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                    <h5 className="mb-0">게시글 등록</h5>
+                    <h5 className="mb-0">{boardName} - 게시글 등록</h5>
                     <span className="badge badge-light">작성</span>
                 </div>
 
