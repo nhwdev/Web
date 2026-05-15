@@ -6,6 +6,8 @@ import BoardForm from './components/board/BoardForm.jsx'
 import BoardInfo from './components/board/BoardInfo.jsx'
 import BoardUpdate from './components/board/BoardUpdate.jsx'
 import BoardDelete from './components/board/BoardDelete.jsx'
+import MemberJoin from './components/member/MemberJoin.jsx'
+import MemberLogin from './components/member/MemberLogin.jsx'
 // import BoardUpdateForm from './components/board/BoardUpdateForm.jsx'
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
                 {/*<Route path='/board/boardUpdateForm/:bNum' element={<BoardUpdateForm/>}/>*/}
                 <Route path='/board/boardUpdate/:bNum' element={<BoardUpdate/>}/>
                 <Route path='/board/boardDelete/:bNum' element={<BoardDelete/>}/>
+                <Route path='/member/join' element={<MemberJoin/>}/>
+                <Route path='/member/login' element={<MemberLogin/>}/>
             </Routes>
         </BrowserRouter>
     )
