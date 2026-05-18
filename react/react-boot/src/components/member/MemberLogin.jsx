@@ -7,17 +7,25 @@ function MemberLogin() {
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
         const response = await fetch("http://localhost:8080/member/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
+            credentials: 'include', // 리액트가 스프링으로 쿠키를 보낼 때 사용 하는 fetch 표준 옵션
+            // mode: 'cors', /* 생략가능, cors (Cross-Origin Resource Sharing): 서로 다른 도메인/포트로 데이터를 요청할 때 자동으로 설정되는 모드입니다. 서버가 허용(@CrossOrigin)해줘야만 데이터를 읽을 수 있습니다. */
+            // xhrFields: { // jQuery 전용 옵션
+            //     withCredentials: true
+            // },
+            // crossDomain: true // jQuery 전용 옵션
             body: JSON.stringify({id, pass})
         })
-
         if(response.ok){
-            navigate("/member/mypage/"+id)
+            alert("로그인 성공!");
+            navigate("/member/mypage/"+id);
         } else {
-            setError(await response.text())
+            setError(await response.text());
         }
     }
 

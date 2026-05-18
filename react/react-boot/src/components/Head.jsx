@@ -8,6 +8,7 @@ function Head(props) {
 
     const logout = () => {
         removeCookie("id", { path: '/' })
+        removeCookie("id", { path: '/member' })
         window.location.href = "/member/login";
     }
     return (
@@ -37,9 +38,14 @@ function Head(props) {
                         </li>
                     </>}
                     {props.cook &&
-                        <li className="nav-item">
-                            <button className="btn btn-outline-dark btn-sm px-3" style={{fontSize:"13px"}} onClick={logout}>로그아웃</button>
-                        </li>
+                        <>
+                            <li className="nav-item">
+                                <button className="btn btn-outline-dark btn-sm px-3" style={{fontSize:"13px"}}>{props.cook} 님!</button>
+                            </li>
+                            <li className="nav-item">
+                                <button className="btn btn-outline-dark btn-sm px-3" style={{fontSize:"13px"}} onClick={logout}>로그아웃</button>
+                            </li>
+                        </>
                     }
                 </ul>
             </div>

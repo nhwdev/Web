@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import PictureUpload from "./PictureUpload.jsx";
 
 function MemberJoin() {
     const [id, setId] = useState("");
@@ -13,6 +14,13 @@ function MemberJoin() {
     const [errors, setErrors] = useState({});
     const [idChecked, setIdChecked] = useState(false);
     const navigate = useNavigate();
+    const [showPicture, setShowPicture] = useState(false);
+    const [preview, setPreview] = useState(null);
+
+    const handlePictureUpload = (file, previewUrl) => {
+        setPicture(file);       // 기존 file 상태에 저장
+        setPreview(previewUrl); // 미리보기 저장
+    }
 
     const validate = () => {
         const newErrors = {};
@@ -217,17 +225,36 @@ function MemberJoin() {
                         </div>
 
                         {/* 프로필 사진 */}
-                        <div className="form-group mb-0">
+                        <div className="form-group">
                             <label className="text-muted" style={{fontSize: "13px"}}>프로필 사진</label>
-                            <input
-                                type="file"
-                                className="form-control-file"
-                                onChange={(e) => setPicture(e.target.files[0])}
-                            />
-                        </div>
+                            <div className="d-flex flex-column align-items-start">
 
+                                {/* 버튼  */}
+                                <button
+                                    className="btn btn-outline-dark btn-sm"
+                                    type="button"
+                                    onClick={() => setShowPicture(true)}
+                                >
+                                    사진 등록
+                                </button>
+
+                                {/* 미리보기 */}
+                                {preview && (
+                                    <img src={preview} width="120" height="120"
+                                         className="rounded border mb-2" alt="프로필이미지"/>
+                                )}
+
+                            </div>
+                        </div>
                     </form>
                 </div>
+
+                {/* 모달 */}
+                <PictureUpload
+                    show={showPicture}
+                    onClose={() => setShowPicture(false)}
+                    onUpload={handlePictureUpload}
+                />
 
                 {/* 푸터 */}
                 <div className="card-footer bg-white d-flex justify-content-between align-items-center">
