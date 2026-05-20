@@ -9,6 +9,7 @@ import BoardDelete from './components/board/BoardDelete.jsx'
 import MemberJoin from './components/member/MemberJoin.jsx'
 import MemberLogin from './components/member/MemberLogin.jsx'
 import MemberMyPage from "./components/member/MemberMyPage.jsx";
+import MemberUpdate from "./components/member/MemberUpdate.jsx";
 
 function App() {
     const [cookies] = useCookies(['id']) // id 이름의 쿠키정보
@@ -30,6 +31,7 @@ function App() {
                     <Route path='/member/join' element={<MemberJoin/>}/>
                     <Route path='/member/login' element={<MemberLogin/>}/>
                     <Route path='/member/mypage/:id' element={<MemberMyPage/>}/>
+                    <Route path='/member/update/:id' element={<MemberUpdate/>}/>
                 </Route>
             {/* Head가 필요 없는 단독 페이지 */}
             </Routes>
