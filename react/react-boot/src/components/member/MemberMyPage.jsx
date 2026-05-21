@@ -71,13 +71,13 @@ function MemberMyPage() {
                 <div className="card-footer bg-white d-flex justify-content-between">
                     <button
                         className="btn btn-outline-danger btn-sm"
-                        onClick={() => navigate("/member/memberDelete")}
+                        onClick={() => navigate("/member/delete")}
                     >
                         회원탈퇴
                     </button>
                     <button
                         className="btn btn-dark btn-sm px-4"
-                        onClick={() => navigate("/member/memberUpdate")}
+                        onClick={() => navigate("/member/update")}
                     >
                         정보수정
                     </button>

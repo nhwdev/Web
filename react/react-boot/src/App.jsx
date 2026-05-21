@@ -30,8 +30,8 @@ function App() {
                     <Route path='/board/boardDelete/:bNum' element={<BoardDelete/>}/>
                     <Route path='/member/join' element={<MemberJoin/>}/>
                     <Route path='/member/login' element={<MemberLogin/>}/>
-                    <Route path='/member/mypage/:id' element={<MemberMyPage/>}/>
-                    <Route path='/member/update/:id' element={<MemberUpdate/>}/>
+                    <Route path='/member/mypage' element={<MemberMyPage/>}/>
+                    <Route path='/member/update' element={<MemberUpdate/>}/>
                 </Route>
             {/* Head가 필요 없는 단독 페이지 */}
             </Routes>

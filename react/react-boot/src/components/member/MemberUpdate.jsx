@@ -15,7 +15,7 @@ function MemberUpdate() {
 
     // 회원 정보 불러오기
     useEffect(() => {
-        fetch("http://localhost:8080/member/mypage?id=" + cookies.id, {
+        fetch("http://localhost:8080/member/mypage", {
             method: "GET",
             credentials: "include"
         })
@@ -92,8 +92,8 @@ function MemberUpdate() {
                                 <img src={preview} width="100" height="100"
                                      className="rounded-circle border mb-2"
                                      style={{objectFit: "cover"}} alt="프로필"/>
-                            ) : member.profileFileName ? (
-                                <img src={"http://localhost:8080/img/profile/" + member.profileFileName}
+                            ) : member.picture ? (
+                                <img src={"http://localhost:8080/img/profile/" + member.picture}
                                      width="100" height="100"
                                      className="rounded-circle border mb-2"
                                      style={{objectFit: "cover"}} alt="프로필"/>

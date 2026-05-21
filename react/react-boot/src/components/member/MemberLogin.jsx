@@ -23,7 +23,7 @@ function MemberLogin() {
         })
         if(response.ok){
             alert("로그인 성공!");
-            navigate("/member/mypage/"+id);
+            navigate("/member/mypage");
         } else {
             setError(await response.text());
         }
